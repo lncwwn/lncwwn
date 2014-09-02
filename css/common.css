@@ -20,9 +20,13 @@ button {
 	outline: none;
 }
 
-p, h1, h2, h3, h4, h5, h6, ul, li {
+p, h1, h2, h3, h4, h5, h6, ul, li, a {
 	margin: 0;
 	padding: 0;
+}
+
+a {
+	text-decoration: none;
 }
 
 .container {
@@ -40,6 +44,10 @@ p, h1, h2, h3, h4, h5, h6, ul, li {
 
 #logo {
 	margin-left: 20px;
+	color: #fff;
+}
+
+.link {
 	color: #fff;
 }
 
