@@ -1,0 +1,35 @@
+2014/08/23 19:10:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in D:\yii-1.1.15.022a51\framework\web\CController.php:483
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CController.php(270): CController->missingAction('about')
+#1 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('about')
+#2 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\www\lncwwn\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/lncwwn/index.php/site/about
+---
+2014/08/24 23:25:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in D:\yii-1.1.15.022a51\framework\web\CController.php:483
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CController.php(270): CController->missingAction('')
+#1 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('')
+#2 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#3 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\www\lncwwn\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/lncwwn/index.php?user/register
+---
+2014/08/24 23:32:49 [error] [exception.CException] exception 'CException' with message 'UserController 无法找到请求的视图 "index".' in D:\yii-1.1.15.022a51\framework\web\CController.php:878
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CController.php(782): CController->renderPartial('index', NULL, true)
+#1 D:\www\lncwwn\protected\controllers\UserController.php(6): CController->render('index')
+#2 D:\yii-1.1.15.022a51\framework\web\actions\CInlineAction.php(49): UserController->actionIndex()
+#3 D:\yii-1.1.15.022a51\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\yii-1.1.15.022a51\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\yii-1.1.15.022a51\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('index')
+#7 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('user/index')
+#8 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\www\lncwwn\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/lncwwn/index.php/user/index
+---
