@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'个人管理系统',
+	'name'=>'密码管理系统',
 	'language'=>'zh_cn',
 	'theme'=>'sky',
 	'timeZone'=>'Asia/Shanghai',

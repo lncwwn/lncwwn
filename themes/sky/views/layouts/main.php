@@ -1,4 +1,3 @@
-<?php ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +11,7 @@
 				<a href="" class="link"><?php echo CHtml::encode(Yii::app()->name); ?></a>
 			</div>
 		</div><!-- header -->
-		<div id="content"><?php //echo $content; ?></div>
+		<?php echo $content; ?>
 		<div class="clear"></div>
 	</div>
 	<div id="footer">

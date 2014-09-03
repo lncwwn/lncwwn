@@ -33,3 +33,24 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/lncwwn/index.php/user/index
 ---
+2014/09/03 21:56:29 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "clientScript".' in D:\yii-1.1.15.022a51\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('clientScript', Array)
+#1 D:\www\lncwwn\protected\views\user\register.php(2): CWebApplication->clientScript()
+#2 D:\yii-1.1.15.022a51\framework\web\CBaseController.php(126): require('D:\www\lncwwn\p...')
+#3 D:\yii-1.1.15.022a51\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\www\lncwwn\p...', NULL, true)
+#4 D:\yii-1.1.15.022a51\framework\web\CController.php(869): CBaseController->renderFile('D:\www\lncwwn\p...', NULL, true)
+#5 D:\yii-1.1.15.022a51\framework\web\CController.php(782): CController->renderPartial('register', NULL, true)
+#6 D:\www\lncwwn\protected\controllers\UserController.php(10): CController->render('register')
+#7 D:\yii-1.1.15.022a51\framework\web\actions\CInlineAction.php(49): UserController->actionRegister()
+#8 D:\yii-1.1.15.022a51\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 D:\yii-1.1.15.022a51\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 D:\yii-1.1.15.022a51\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('register')
+#12 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('user/register')
+#13 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\www\lncwwn\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/lncwwn/index.php/user/register?
+HTTP_REFERER=http://localhost:8081/lncwwn/index.php/user/register
+---

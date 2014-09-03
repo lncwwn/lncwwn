@@ -9,4 +9,8 @@
 		public function actionRegister() {
 			$this->render('register');
 		}
+
+        public function actionLogin() {
+            $this->render('login');
+        }
 	}
