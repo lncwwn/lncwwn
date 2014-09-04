@@ -18,6 +18,7 @@
     border-color: #b4d0dc;
     border-width: 0 1px 1px 1px;
     cursor: pointer;
+    font-size: 0;
 }
 
 .row-head {
@@ -31,7 +32,7 @@
 }
 
 .row:nth-child(2n) {
-    background-color: #def4fc;
+    background-color: #f2faf9;
 }
 
 .row:hover {
@@ -41,11 +42,12 @@
 .col {
     height: 33px;
     display: inline-block;
-    border-right: 1px solid #c0c0c0;
+    border-right: 1px solid #b4d0dc;
     line-height: 33px;
     text-align: center;
     vertical-align: top;
     color: #555;
+    font-size: 13px;
 }
 
 .col:last-child {
@@ -65,4 +67,8 @@
 
 .col[data-column="time"] {
     width: 160px;
+}
+
+.row .col:hover {
+    box-shadow: 0 0 8px #6be1ef;
 }
