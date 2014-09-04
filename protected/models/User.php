@@ -3,6 +3,8 @@
 	/**
 	 * User class.
 	 * User class is the data structure to keeping users' information.
+     * @author Victor Li lncwwn@gmail.com
+     * @date 2014/09/04
 	 */
 	class User extends CActiveRecord {
 
@@ -19,4 +21,4 @@
 			return 'tb_users';
 		}
 	}
-?> 
+?>

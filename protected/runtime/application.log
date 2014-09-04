@@ -54,3 +54,125 @@ Stack trace:
 REQUEST_URI=/lncwwn/index.php/user/register?
 HTTP_REFERER=http://localhost:8081/lncwwn/index.php/user/register
 ---
+2014/09/04 22:22:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "account/list"。' in D:\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/list')
+#1 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\lncwwn\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/lncwwn/index.php/account/list
+---
+2014/09/04 22:22:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "account/list"。' in D:\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/list')
+#1 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\lncwwn\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/lncwwn/index.php/account/list
+---
+2014/09/04 22:32:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "account/list"。' in D:\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/list')
+#1 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\lncwwn\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/lncwwn/index.php/account/list
+---
+2014/09/04 22:34:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "account/list"。' in D:\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/list')
+#1 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\lncwwn\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/lncwwn/index.php/account/list
+---
+2014/09/04 22:34:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "account/index"。' in D:\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/index')
+#1 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\lncwwn\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/lncwwn/index.php/account/index
+---
+2014/09/04 22:34:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "account/index"。' in D:\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/index')
+#1 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\lncwwn\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/lncwwn/index.php/account/index
+---
+2014/09/04 22:35:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "account/list"。' in D:\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/list')
+#1 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\lncwwn\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/lncwwn/index.php/account/list
+---
+2014/09/04 22:36:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "view" 动作.' in D:\yii-1.1.15.022a51\framework\web\CController.php:483
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CController.php(270): CController->missingAction('view')
+#1 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('view')
+#2 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/view')
+#3 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\www\lncwwn\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/lncwwn/index.php/account/0
+HTTP_REFERER=http://localhost:8081/lncwwn/index.php/account/list
+---
+2014/09/04 22:36:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "view" 动作.' in D:\yii-1.1.15.022a51\framework\web\CController.php:483
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CController.php(270): CController->missingAction('view')
+#1 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('view')
+#2 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/view')
+#3 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\www\lncwwn\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/lncwwn/index.php/account/0
+HTTP_REFERER=http://localhost:8081/lncwwn/index.php/account/list
+---
+2014/09/04 22:38:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "view" 动作.' in D:\yii-1.1.15.022a51\framework\web\CController.php:483
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CController.php(270): CController->missingAction('view')
+#1 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('view')
+#2 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/view')
+#3 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\www\lncwwn\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/lncwwn/index.php/account/0
+HTTP_REFERER=http://localhost:8081/lncwwn/index.php/account/list
+---
+2014/09/04 22:38:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "view" 动作.' in D:\yii-1.1.15.022a51\framework\web\CController.php:483
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CController.php(270): CController->missingAction('view')
+#1 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('view')
+#2 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/view')
+#3 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\www\lncwwn\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/lncwwn/index.php/account/0
+HTTP_REFERER=http://localhost:8081/lncwwn/index.php/account/list
+---
+2014/09/04 22:38:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "view" 动作.' in D:\yii-1.1.15.022a51\framework\web\CController.php:483
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CController.php(270): CController->missingAction('view')
+#1 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('view')
+#2 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/view')
+#3 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\www\lncwwn\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/lncwwn/index.php/account/0
+HTTP_REFERER=http://localhost:8081/lncwwn/index.php/account/list
+---
+2014/09/04 22:39:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "view" 动作.' in D:\yii-1.1.15.022a51\framework\web\CController.php:483
+Stack trace:
+#0 D:\yii-1.1.15.022a51\framework\web\CController.php(270): CController->missingAction('view')
+#1 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(282): CController->run('view')
+#2 D:\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('account/view')
+#3 D:\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\www\lncwwn\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/lncwwn/index.php/account/0
+HTTP_REFERER=http://localhost:8081/lncwwn/index.php/account/list
+---

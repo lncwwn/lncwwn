@@ -19,12 +19,24 @@ input {
     font-size: 12px;
 }
 
+input[name="phone"] {
+    margin-bottom: 8px;
+}
+
 button {
     position: relative;
-    margin-top: 10px;
+    margin-top: 20px;
     left: 239px;
 }
 
 button:last-child {
     margin-left: 5px;
+}
+
+.after-checkbox {
+    color: #17aad5;
+}
+
+.after-checkbox:hover {
+    color: #36c7f1;
 }
