@@ -10,8 +10,11 @@
 
 		public $id;
 		public $nick;
-		public $password;
+        public $password;
+        public $email;
+        public $phone;
 		public $created;
+        public $accepted = false;
 
 		public static function model($className = __CLASS__) {
 			return parent::model($className);
@@ -20,5 +23,33 @@
 		public function tableName() {
 			return 'tb_users';
 		}
+
+        public function rules() {
+            return array(
+                array('nick, passwd', 'required', 'on'=>'login, register'),
+                array('email', 'email', 'on'=>'register'),
+                array('accepted', 'boolean')
+            );
+        }
+
+        /**
+         * register behaviour
+         * @param user user who will register in the system
+         */
+        public function register() {
+            $insert = 'insert into tb_users (nick, password, email, phone, created)'
+                .'values (:nick, :passwd, :email, :phone, :created)';
+            $conn = Yii::app()->db;
+            $command = $conn->createCommand($insert);
+            $command->bindParam(':nick', $this->$nick, PDO::PARAM_STR);
+            $command->bindParam(':passwd', $this->$passwd, PDO::PARAM_STR);
+            $command->bindParam(':email', $this->$email, PDO::PARAM_STR);
+            $command->bindParam(':phone', $this->$email, PDO::PARAM_STR);
+            $effect = $command->execute();
+            if ($effect > 0) {
+                return true;
+            }
+            return false;
+        }
 	}
 ?>

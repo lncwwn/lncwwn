@@ -19,4 +19,9 @@
 		<p class="copyright">Copyright &copy; by 小熊工作室. All Rights Reserved.</p>
 	</div><!-- footer -->
 </body>
+<script type="text/javascript">
+    // defined global base url for js
+    var BASE_URL = '<?php echo Yii::app()->baseUrl; ?>';
+</script>
+<script src="<?php echo Yii::app()->baseUrl.'/js/require.js' ?>" data-main="<?php echo Yii::app()->baseUrl.'/js/main' ?>"></script>
 </html>
