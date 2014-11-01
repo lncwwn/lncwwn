@@ -10,7 +10,7 @@
         <input type="text" class="input" name="email" placeholder="请输入邮箱，用于密码找回"/><br>
         <input type="text" class="input" name="phone" placeholder="请输入手机号，用于密码找回"/><br>
         <input type="checkbox" class="checkbox"/><a href="" title="点击查看服务条款" class="after-checkbox">我已接受服务条款</a><br>
-        <button class="btn rev-btn">注册</button>
-        <button class="btn gray-btn">已有帐号？</button>
+        <button class="btn rev-btn js-reg-btn">注册</button>
+        <button class="btn gray-btn js-uid-exist">已有帐号？</button>
     </form>
 </div>

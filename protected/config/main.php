@@ -50,7 +50,7 @@ return array(
 		),
 		'db'=>array(
 			//'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-			'connectionString' => 'mysql:host=localhost;dbname=db_lncwwn',
+			'connectionString' => 'mysql:host=localhost;dbname=db_passkeeper',
 			'username' => 'root',
 			'password' => 'lncwwn',
 			'charset' => 'utf8'

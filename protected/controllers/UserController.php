@@ -8,25 +8,54 @@
 
         /**
          * user register action
-         * @param $nick user nick
-         * @param $passwd user password
-         * @param $email user email
-         * @param $phone user phone, optional
          */
         public function actionRegister() {
             $user = new User('register');
-            if (isset($_POST['User'])) {
-                $model->attributes = $_POST['User'];
-                if ($model->validate()) {
+            $nick = Yii::app()->request->getPost('nick');
+            $password = Yii::app()->request->getPost('passwd');
+            $email = Yii::app()->request->getPost('email');
+            $register_succ = false;
+            if (isset($nick) && isset($password) && isset($email)) {
+                $user->nick = $nick;
+                $user->password = $password;
+                $user->email = $email;
+                $user->created = date('Y-m-d H:i:s');
+                if ($user->validate()) {
                     if ($user->register()) {
-                        $this->redirect('login');
+                        $register_succ = true;
                     }
                 }
             }
-            $this->render('register');
+
+            if ($register_succ) {
+                $this->render('login');
+            } else {
+                $this->render('register');
+            }
 		}
 
+        /**
+         * login action
+         * if nick or password is empty, stay on login page
+         * else, redirect to index page
+         */
         public function actionLogin() {
-            $this->render('login');
+            $nick = Yii::app()->request->getPost('nick');
+            $passwd = Yii::app()->request->getPost('passwd');
+            $login_succ = false;
+            if (isset($nick) && isset($passwd)) {
+                $user = new User;
+                $user->nick = $nick;
+                $user->password = $passwd;
+                if ($user->login()) {
+                    $login_succ = true;
+                }
+            }
+
+            if ($login_succ) {
+                //$this->render();
+            } else {
+                $this->render('login');
+            }
         }
 	}

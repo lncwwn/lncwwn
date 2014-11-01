@@ -26,7 +26,7 @@
 
         public function rules() {
             return array(
-                array('nick, passwd', 'required', 'on'=>'login, register'),
+                array('nick, password', 'required'),
                 array('email', 'email', 'on'=>'register'),
                 array('accepted', 'boolean')
             );
@@ -34,22 +34,45 @@
 
         /**
          * register behaviour
-         * @param user user who will register in the system
          */
         public function register() {
-            $insert = 'insert into tb_users (nick, password, email, phone, created)'
-                .'values (:nick, :passwd, :email, :phone, :created)';
+            $insert = 'insert into tb_users (nick, password, email, created)'
+                .'values (:nick, :passwd, :email, :created)';
             $conn = Yii::app()->db;
             $command = $conn->createCommand($insert);
-            $command->bindParam(':nick', $this->$nick, PDO::PARAM_STR);
-            $command->bindParam(':passwd', $this->$passwd, PDO::PARAM_STR);
-            $command->bindParam(':email', $this->$email, PDO::PARAM_STR);
-            $command->bindParam(':phone', $this->$email, PDO::PARAM_STR);
+            $command->bindParam(':nick', $this->nick, PDO::PARAM_STR);
+            $command->bindParam(':passwd', $this->password, PDO::PARAM_STR);
+            $command->bindParam(':email', $this->email, PDO::PARAM_STR);
+            $command->bindParam(':created', $this->created, PDO::PARAM_STR);
             $effect = $command->execute();
             if ($effect > 0) {
                 return true;
             }
             return false;
+        }
+
+        /**
+         * login behaviour
+         */
+        public function login() {
+            $login = 'select nick, password from tb_users where nick = :nick';
+            $conn = Yii::app()->db;
+            $command = $conn->createCommand($login);
+            $command->bindParam(':nick', $this->nick, PDO::PARAM_STR);
+            $result = $command->query();
+            $row = $result->readAll();
+            foreach ($row as $matched_user) {
+                if ($matched_user['password'] === $this->password) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public function attributeLabels() {
+            return array(
+                'verifyCode'=>'Verification Code',
+            );
         }
 	}
 ?>
