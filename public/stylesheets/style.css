@@ -30,6 +30,25 @@ a {
     line-height: 23px;
 }
 
+.login-panel {
+    margin-top: 160px;
+    margin-bottom: 260px;
+}
+
+.star {
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    background: url(../images/star.png) no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    -webkit-filter: grayscale(1);
+}
+
+.star:hover {
+    -webkit-filter: none;
+}
+
 .footer {
     width: 100%;
     height: 123px;

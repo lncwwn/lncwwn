@@ -4,7 +4,7 @@
             a.text-muted(href='post/#{post.id}') #{post.title}
             ul.list-inline.pull-right
                 li.text-muted #{post.created}
-                li
-                    a(href='#') share
         .panel-body.post-body #{post.content}
+        .panel-footer
+            i.star(title='怒赞')
 - })

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    .col-md-6.col-md-offset-3.login-panel
+        .panel.panel-default
+            .panel-heading
+                label User login
+            .panel-body
+                .col-md-8.col-md-offset-2
+                    .form-group
+                        label(for='user-nick') Nick
+                        input.form-control#user-nick(type='text' placeholder='user nick')
+                    .form-group
+                        label(for='user-password') Password
+                        input.form-control#user-password(type='password' placeholder='user password')
+                    .checkbox
+                        label
+                            input(type='checkbox')
+                            | Remember me
+                     .col-md-3.col-md-offset-9
+                        button.btn.btn-primary Login
