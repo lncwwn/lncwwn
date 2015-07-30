@@ -16,6 +16,7 @@ module.exports = {
             posts.forEach(function(post, index) {
                 post['created'] = moment(post['created']).format('YYYY-MM-DD HH:mm:ss');
             });
+
             return posts;
         });
     }
