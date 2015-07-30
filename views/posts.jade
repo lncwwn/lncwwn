@@ -1,11 +1,19 @@
-.col-md-8.col-md-offset-2
-    .col-md-10
-        .panel.panel-default
-            .panel-heading
-                a.text-muted(href='#') This is my first post
-            .panel-body fsfdfdfdfdfdfdf
+extends layout
 
-    .col-md-2.sidebar
-        .panel.panel-default
-            .panel-heading welcome
-            .panel-body wdsfdsfdf
+block content
+    .col-md-8.col-md-offset-2
+        - posts.forEach(function(post, index) {
+            .col-md-10
+                .panel.panel-default
+                    .panel-heading
+                        a.text-muted(href='post/#{post.id}') #{post.title}
+                        ul.list-inline.pull-right
+                            li.text-muted #{post.created}
+                        .pull-right
+                            a(href='#') share
+                    .panel-body #{post.content}
+        - })
+        .col-md-2.sidebar.hidden-sm
+            .panel.panel-default
+                .panel-heading welcome
+                .panel-body wdsfdsfdf
