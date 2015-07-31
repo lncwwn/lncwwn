@@ -1,21 +1,25 @@
 extends layout
 
 block content
-    .col-md-4.col-md-offset-4.login-panel
-        .panel.panel-default
-            .panel-heading
-                label User login
-            .panel-body
-                .col-md-8.col-md-offset-2
-                    .form-group
-                        label(for='user-nick') Nick
-                        input.form-control#user-nick(type='text' placeholder='user nick')
-                    .form-group
-                        label(for='user-password') Password
-                        input.form-control#user-password(type='password' placeholder='user password')
-                    .checkbox
-                        label
-                            input(type='checkbox')
-                            |Remember me
-                     .col-md-3.col-md-offset-9
-                        button.btn.btn-primary Login
+    .container-fluid
+        .col-md-4.col-md-offset-4.login-panel
+            .panel.panel-default
+                .panel-heading
+                    label 用户登录
+                .panel-body
+                    .col-md-8.col-md-offset-2
+                        form
+                            .form-group
+                                label(for='user-nick') 昵称
+                                input.form-control#user-nick(type='text' placeholder='昵称' autofocus)
+                            .form-group
+                                label(for='user-password') 密码
+                                input.form-control#user-password(type='password' placeholder='密码')
+                            .checkbox
+                                label
+                                    input(type='checkbox' value='remember-me')
+                                    | 记住我的登录状态
+                             .col-md-3.col-md-offset-9
+                                button.btn.btn-primary 登录
+                             .text-muted 还没有帐号？
+                             a.text-info(href='/users/signup') 注册一个吧
