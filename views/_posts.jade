@@ -1,10 +1,17 @@
 - posts.forEach(function(post, index) {
-    .panel.panel-default
-        .panel-heading
-            a.text-muted(href='post/#{post.id}') #{post.title}
-            ul.list-inline.pull-right
-                li.text-muted #{post.created}
-        .panel-body.post-body #{post.content}
-        .panel-footer
-            i.star(title='怒赞')
+    .col-md-1.col-md-offset-2
+        .post-interactive.pull-right
+            .post-assent
+                .glyphicon.glyphicon-triangle-top
+                span 122
+            .post-oppose
+                .glyphicon.glyphicon-triangle-bottom
+    .col-md-9.basic-col-md
+        .col-md-12.basic-col-md
+            .panel.panel-default
+                .panel-heading
+                    a.text-muted(href='post/#{post.id}') #{post.title}
+                    ul.list-inline.pull-right
+                        li.text-muted #{post.created}
+                .panel-body.post-body #{post.content}
 - })
