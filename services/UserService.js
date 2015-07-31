@@ -21,9 +21,20 @@ module.exports = {
         });
     },
 
+    listByIds: function(ids) {
+        return UserMapper.listByIds(ids).then(function(users) {
+            users.forEach(function(user, index) {
+                user['joined'] = moment(user['joined']).format('YYYY-MM-DD HH:mm:ss');
+            });
+
+            return users;
+        });
+    },
+
     findByNick: function(nick) {
         return UserMapper.findByNick(nick).then(function(user) {
             console.log(user);
+            return user;
         });
     }
 

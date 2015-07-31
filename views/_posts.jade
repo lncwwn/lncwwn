@@ -12,6 +12,8 @@
                 .panel-heading
                     a.text-muted(href='post/#{post.id}') #{post.title}
                     ul.list-inline.pull-right
+                        li
+                            a.text-primary(href='/users/#{post.author.id}') #{post.author.nick}
                         li.text-muted #{post.created}
                 .panel-body.post-body #{post.content}
 - })

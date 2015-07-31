@@ -7,6 +7,7 @@
 
 var sequelize = require('../modules/sequelize');
 var Sequelize = require('sequelize');
+var User = require('./User');
 
 var Post = sequelize.define('post', {
     id: Sequelize.INTEGER,
@@ -23,5 +24,6 @@ var Post = sequelize.define('post', {
     tableName: 'post'
 });
 
-module.exports = Post;
+Post.belongsTo(User, {foreignKey: 'author', targetKey: 'id'});
 
+module.exports = Post;

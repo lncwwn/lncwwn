@@ -22,6 +22,18 @@ UserMapper.list = function(offset, limit) {
     });
 };
 
+UserMapper.listByIds = function(ids) {
+    return User.findAll({
+        where: {
+            id: {
+                $in: ids
+            }
+        }
+    }).then(function(users) {
+        return users;
+    });
+};
+
 UserMapper.findByNick = function(nick) {
     return User.findOne({
         where: {
