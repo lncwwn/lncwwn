@@ -8,9 +8,10 @@
 var sequelize = require('../modules/sequelize');
 var Sequelize = require('sequelize');
 var User = require('./User');
+var Interaction = require('./Interaction');
 
 var Post = sequelize.define('post', {
-    id: Sequelize.INTEGER,
+    id: {type: Sequelize.INTEGER, primaryKey: true},
     author: Sequelize.INTEGER,
     title: Sequelize.STRING,
     content: Sequelize.TEXT,
@@ -25,5 +26,6 @@ var Post = sequelize.define('post', {
 });
 
 Post.belongsTo(User, {foreignKey: 'author', targetKey: 'id'});
+Post.hasMany(Interaction, {foreignKey: 'post'});
 
 module.exports = Post;

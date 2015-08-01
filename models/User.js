@@ -9,7 +9,7 @@ var sequelize = require('../modules/sequelize');
 var Sequelize = require('sequelize');
 
 var User = sequelize.define('user', {
-    id: Sequelize.INTEGER,
+    id: {type: Sequelize.INTEGER, primaryKey: true},
     nick: Sequelize.STRING,
     password: Sequelize.STRING,
     joined: Sequelize.TIME,

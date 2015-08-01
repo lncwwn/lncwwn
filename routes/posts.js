@@ -7,8 +7,13 @@ var UserService = require('../services/UserService');
 
 router.get('/', function(req, res, next) {
     PostService.list().then(function(posts) {
+
         var authors = posts.map(function(post) {
             return post.getUser();
+        });
+
+        var interactions = posts.map(function(interaction) {
+            return interaction.getInteractions();
         });
 
         Promise.settle(authors).then(function(results) {
@@ -21,7 +26,27 @@ router.get('/', function(req, res, next) {
                 });
             });
 
-            res.render('posts', {posts: posts});
+            Promise.settle(interactions).then(function(results) {
+                posts.forEach(function(post) {
+                    results.forEach(function(result) {
+                        var interaction = result.value();
+                        post.interaction = {};
+                        if (interaction && interaction.length > 0) {
+                            interaction.forEach(function(i) {
+
+                            });
+                        } else {
+                            post.interaction.read = 0;
+                            post.interaction.like = 0;
+                            post.interaction.hate = 0;
+                        }
+                        console.log(JSON.stringify(interaction));
+                    });
+                });
+
+                res.render('posts', {posts: posts});
+            });
+
         });
     });
 });

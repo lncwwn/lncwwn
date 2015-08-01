@@ -12,9 +12,23 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-    UserService.findByNick('victor').then(function(user) {
-        res.cookie('rememberme', '1', {expires: new Date(Date.now() + 900000), httpOnly: true}, 'login_user', user);
-    });
+    var nick = req.body['nick'];
+    var password = req.body['password'];
+    var rememberMe = req.body['remember-me'];
+
+    if (nick && password) {
+        UserService.findByNick(nick).then(function(user) {
+            if (user.password === password) {
+                res.cookie('login_user', user);
+                res.redirect('/');
+            } else {
+                res.render('login', {error: 'error'});
+            }
+        });
+    } else {
+        res.render('login', {error: 'no nick or password passed'});
+    }
+
 });
 
 module.exports = router;
