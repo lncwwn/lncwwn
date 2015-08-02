@@ -12,8 +12,10 @@ router.get('/', function(req, res, next) {
             return post.getUser();
         });
 
-        var interactions = posts.map(function(interaction) {
-            return interaction.getInteractions();
+        var interactions = posts.map(function(post) {
+            return post.getInteractions().then(function(interaction) {
+                post.interaction = interaction;
+            });
         });
 
         Promise.settle(authors).then(function(results) {
@@ -28,20 +30,23 @@ router.get('/', function(req, res, next) {
 
             Promise.settle(interactions).then(function(results) {
                 posts.forEach(function(post) {
-                    results.forEach(function(result) {
-                        var interaction = result.value();
-                        post.interaction = {};
-                        if (interaction && interaction.length > 0) {
-                            interaction.forEach(function(i) {
-
-                            });
-                        } else {
-                            post.interaction.read = 0;
-                            post.interaction.like = 0;
-                            post.interaction.hate = 0;
-                        }
-                        console.log(JSON.stringify(interaction));
-                    });
+                    post.interactionData = {};
+                    var interaction = post.interaction;
+                    if (interaction && interaction.length > 0) {
+                        var read = 0, like = 0, hate = 0;
+                        interaction.forEach(function(i) {
+                            read += i.read;
+                            if (i.like) like++;
+                            if (i.hate) hate++;
+                        });
+                        post.interactionData.read = read;
+                        post.interactionData.like = like;
+                        post.interactionData.hate = hate;
+                    } else {
+                        post.interactionData.read = 0;
+                        post.interactionData.like = 0;
+                        post.interactionData.hate = 0;
+                    }
                 });
 
                 res.render('posts', {posts: posts});

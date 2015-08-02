@@ -3,7 +3,7 @@
         .post-interactive.pull-right
             .post-assent
                 .glyphicon.glyphicon-triangle-top
-                span 122
+                div #{post.interactionData.like}
             .post-oppose
                 .glyphicon.glyphicon-triangle-bottom
     .col-md-9.basic-col-md
@@ -14,6 +14,7 @@
                     ul.list-inline.pull-right
                         li
                             a.text-primary(href='/users/#{post.author.id}') #{post.author.nick}
-                        li.text-muted #{post.created}
+                            span.text-muted &nbsp;发表于&nbsp;
+                            span.text-info #{post.created}
                 .panel-body.post-body #{post.content}
 - })
