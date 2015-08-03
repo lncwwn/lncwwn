@@ -4,4 +4,8 @@
             a.navbar-brand(href='/') 痕迹
         ul.nav.navbar-nav.navbar-right
             li
-                a(href='/users/login') 登录
+                - if (locals.currentUser)
+                    a(href='/users/#{locals.currentUser.id}') #{locals.currentUser.nick}
+                        span.caret
+                - else
+                    a(href='/users/login') 登录

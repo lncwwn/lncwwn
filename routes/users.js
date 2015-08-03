@@ -19,7 +19,11 @@ router.post('/login', function(req, res, next) {
     if (nick && password) {
         UserService.findByNick(nick).then(function(user) {
             if (user.password === password) {
-                res.cookie('login_user', user);
+                var cookieUser = user;
+                req.session.currentUser = user;
+                req.session.save(function(err) {
+                    console.log(err);
+                });
                 res.redirect('/');
             } else {
                 res.render('login', {error: 'error'});

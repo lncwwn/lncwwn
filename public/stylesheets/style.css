@@ -1,4 +1,4 @@
-html{
+html {
     position: relative;
     min-height: 100%;
 }
@@ -11,7 +11,7 @@ body {
 }
 
 a {
-    color: #00B7FF;
+    color: #00b7ff;
 }
 
 .navbar-default {
@@ -19,7 +19,12 @@ a {
     border-color: #356E8F;
 }
 
-.navbar-default .navbar-brand {
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
     color: #fff;
 }
 
@@ -42,7 +47,7 @@ a {
 }
 
 .login-panel {
-    margin-top: 160px;
+    margin-top: 136px;
 }
 
 .post-interactive {
