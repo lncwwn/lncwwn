@@ -1,11 +1,14 @@
 .navbar.navbar-default.navbar-fixed-top
     .container-fluid
         .navbar-header
-            a.navbar-brand(href='/') 痕迹
+            a.navbar-brand(href='/') LncWwn
         ul.nav.navbar-nav.navbar-right
-            li
+            li.dropdown
                 - if (locals.currentUser)
-                    a(href='/users/#{locals.currentUser.id}') #{locals.currentUser.nick}
+                    a.dropdown-toggle(href='javascript:;' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false') #{locals.currentUser.nick}
                         span.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='#') Action
                 - else
                     a(href='/users/login') 登录
