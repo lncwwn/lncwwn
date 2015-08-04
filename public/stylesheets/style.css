@@ -6,12 +6,13 @@ html {
 body {
     padding: 78px 0 0;
     font: 14px "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Tahoma, Helvetica, Arial, sans-serif;
-    background-color: #E0F6F5;
+    background-color: #e0f6f5;
     margin-bottom: 160px;
 }
 
-a {
-    color: #00b7ff;
+.header {
+    width: 66%;
+    margin: 0 auto;
 }
 
 .navbar-default {
