@@ -3,10 +3,12 @@
         .navbar-header
             a.navbar-brand(href='/') LncWwn
         ul.nav.navbar-nav.navbar-right
-            li
+            li.js-navbar-dropdown-area
                 - if (locals.currentUser)
-                    a.js-navbar-toggle(href='javascript:;') #{locals.currentUser.nick}
+                    a(href='javascript:;').js-navbar-toggle #{locals.currentUser.nick}
                         span.caret
                     .navbar-dropdown-panel
+                        .navbar-dropdown-body
+                            a(href='javascript:;').navbar-dropdown-item.text-white 注销
                 - else
                     a(href='/users/login') 登录

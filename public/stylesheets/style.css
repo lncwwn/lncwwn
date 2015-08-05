@@ -35,16 +35,35 @@ body {
 
 .navbar-dropdown-panel {
     width: 123px;
-    height: 136px;
     position: absolute;
     top: 0;
     border-radius: 0 0 6px 6px;
+    box-shadow: 0 0 6px #328fc5;
     background-color: #328fc5;
     display: none;
 }
 
-.jumbotron {
-    background-color: #fff;
+.navbar-dropdown-body {
+    margin-top: 50px;
+    padding: 6px 0 16px 0;
+    border-top: 1px solid #1f8394;
+}
+
+.navbar-dropdown-item {
+    width: 100%;
+    height: 36px;
+    display: inline-block;
+    text-align: center;
+    line-height: 36px;
+    border-bottom: 1px solid #1f8394;
+}
+
+.navbar-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.text-white {
+    color: #fff;
 }
 
 .basic-col-md {
