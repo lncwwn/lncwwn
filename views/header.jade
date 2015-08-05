@@ -5,8 +5,8 @@
         ul.nav.navbar-nav.navbar-right
             li
                 - if (locals.currentUser)
-                    a.dropdown-toggle(href='javascript:;') #{locals.currentUser.nick}
+                    a.js-navbar-toggle(href='javascript:;') #{locals.currentUser.nick}
                         span.caret
-
+                    .navbar-dropdown-panel
                 - else
                     a(href='/users/login') 登录

@@ -29,6 +29,20 @@ body {
     color: #fff;
 }
 
+.js-navbar-toggle {
+    z-index: 100;
+}
+
+.navbar-dropdown-panel {
+    width: 123px;
+    height: 136px;
+    position: absolute;
+    top: 0;
+    border-radius: 0 0 6px 6px;
+    background-color: #328fc5;
+    display: none;
+}
+
 .jumbotron {
     background-color: #fff;
 }
