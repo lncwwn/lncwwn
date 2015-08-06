@@ -6,7 +6,7 @@ html {
 body {
     padding: 78px 0 0;
     font: 14px "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Tahoma, Helvetica, Arial, sans-serif;
-    background-color: #e0f6f5;
+    /*background-color: #e0f6f5;*/
     margin-bottom: 160px;
 }
 
@@ -33,6 +33,14 @@ body {
     color: #fff;
 }
 
+.input-group {
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    margin-top: 2px;
+}
+
 .js-navbar-toggle {
     z-index: 100;
 }
@@ -50,7 +58,7 @@ body {
 .navbar-dropdown-body {
     margin-top: 50px;
     padding: 6px 0 16px 0;
-    border-top: 1px solid #2da6bb;
+    border-top: 1px solid #235B65;
 }
 
 .navbar-dropdown-item {
@@ -59,11 +67,15 @@ body {
     display: inline-block;
     text-align: center;
     line-height: 36px;
-    border-bottom: 1px solid #2da6bb;
+    border-bottom: 1px solid #235b65;
 }
 
 .navbar-dropdown-item:last-child {
     border-bottom: none;
+}
+
+::selection {
+    background-color: #eee;
 }
 
 .text-white {

@@ -3,23 +3,21 @@ extends layout
 block content
     .container-fluid
         .col-md-4.col-md-offset-4.login-panel
-            .panel.panel-default
-                .panel-heading
-                    label 用户登录
-                .panel-body
-                    .col-md-8.col-md-offset-2
-                        form(action='/users/login', method='post')
-                            .form-group
-                                label(for='user-nick') 昵称
-                                input.form-control#user-nick(type='text' name='nick' placeholder='昵称' autofocus)
-                            .form-group
-                                label(for='user-password') 密码
-                                input.form-control#user-password(type='password' name='password' placeholder='密码')
-                            .checkbox
-                                label
-                                    input(type='checkbox' name='remember-me' value='remember-me')
-                                    | 记住我的登录状态
-                             .col-md-3.col-md-offset-9
-                                button.btn.btn-primary(type='submit') 登录
-                             .text-muted 还没有帐号？
-                             a.text-info(href='/users/signup') 注册一个吧
+            .col-md-8.col-md-offset-2
+                form(action='/users/login', method='post')
+                    .input-group
+                        .input-group-addon
+                            .glyphicon.glyphicon-user(aria-hidden='true')
+                        input.form-control#user-nick(type='text' name='nick' placeholder='昵称' autofocus)
+                    .input-group
+                        .input-group-addon
+                            .glyphicon.glyphicon-lock(aria-hidden='true')
+                        input.form-control#user-password(type='password' name='password' placeholder='密码')
+                    .checkbox
+                        label
+                            input(type='checkbox' name='remember-me' value='remember-me')
+                            | 记住我的登录状态
+                     .col-md-3.col-md-offset-9
+                        button.btn.btn-info(type='submit') 登录
+                     .text-muted 还没有帐号？
+                     a.text-info(href='/users/signup') 注册一个吧

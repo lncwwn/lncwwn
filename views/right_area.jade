@@ -1,0 +1,9 @@
+.col-md-7.sidebar.basic-col-md.hidden-sm
+    - if (locals.currentUser)
+        .panel.panel-default
+            .panel-heading 当前登录
+            .panel-body #{locals.currentUser.nick}
+    - else
+        .panel.panel-default
+            .panel-heading ooooooo
+            .panel-body lllll

@@ -16,5 +16,6 @@
                             a.text-primary(href='/users/#{post.author.id}') #{post.author.nick}
                             span.text-muted &nbsp;发表于&nbsp;
                             span.text-info #{post.created}
-                .panel-body.post-body #{post.content}
+                .panel-body.post-body
+                    p #{post.content}
 - })
