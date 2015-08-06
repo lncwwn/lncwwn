@@ -10,7 +10,7 @@
         .col-md-12.basic-col-md
             .panel.panel-default
                 .panel-heading
-                    a.text-muted(href='post/#{post.id}') #{post.title}
+                    a.text-primary(href='post/#{post.id}') #{post.title}
                     ul.list-inline.pull-right
                         li
                             a.text-primary(href='/users/#{post.author.id}') #{post.author.nick}
