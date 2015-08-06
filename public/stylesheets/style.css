@@ -25,6 +25,10 @@ body {
     color: #fff;
 }
 
+.navbar-default a:hover {
+    color: red;
+}
+
 .navbar-default .navbar-nav>li>a:hover {
     color: #fff;
 }
@@ -38,15 +42,15 @@ body {
     position: absolute;
     top: 0;
     border-radius: 0 0 6px 6px;
-    box-shadow: 0 0 6px #328fc5;
-    background-color: #328fc5;
+    box-shadow: 0 0 6px #094161;
+    background-color: #1372a9;
     display: none;
 }
 
 .navbar-dropdown-body {
     margin-top: 50px;
     padding: 6px 0 16px 0;
-    border-top: 1px solid #1f8394;
+    border-top: 1px solid #2da6bb;
 }
 
 .navbar-dropdown-item {
@@ -55,7 +59,7 @@ body {
     display: inline-block;
     text-align: center;
     line-height: 36px;
-    border-bottom: 1px solid #1f8394;
+    border-bottom: 1px solid #2da6bb;
 }
 
 .navbar-dropdown-item:last-child {
@@ -123,7 +127,6 @@ body {
     background: url(../images/star.png) no-repeat;
     background-size: contain;
     cursor: pointer;
-    -webkit-filter: grayscale(1);
 }
 
 .star:hover {
@@ -136,6 +139,8 @@ body {
     position: absolute;
     bottom: 0;
     margin-top: 26px;
+    padding-top: 10px;
+    text-align: center;
     border-top: 6px solid #618FAB;
     background-color: #1b4b67;
 }
