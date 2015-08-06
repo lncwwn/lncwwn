@@ -34,6 +34,16 @@ UserMapper.listByIds = function(ids) {
     });
 };
 
+UserMapper.findById = function(id) {
+    return User.findOne({
+        where: {
+            id: id
+        }
+    }).then(function(user) {
+        return user;
+    });
+};
+
 UserMapper.findByNick = function(nick) {
     return User.findOne({
         where: {

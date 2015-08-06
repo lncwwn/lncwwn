@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
                     }
                 });
 
-                res.render('posts', {posts: posts});
+                res.render('posts', {posts: posts, title: '文章列表'});
             });
 
         });

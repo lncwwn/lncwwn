@@ -31,9 +31,14 @@ module.exports = {
         });
     },
 
+    findById: function(id) {
+        return UserMapper.findById(id).then(function(user) {
+            return user;
+        });
+    },
+
     findByNick: function(nick) {
         return UserMapper.findByNick(nick).then(function(user) {
-            console.log(user);
             return user;
         });
     }

@@ -40,6 +40,7 @@ app.use(session({
 }));
 
 app.use(function(req, res, next) {
+    app.locals.appName = '知行';
     app.locals.currentUser = req.session.currentUser || null;
     next();
 });
