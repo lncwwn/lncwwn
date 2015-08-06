@@ -2,13 +2,18 @@
     .container-fluid.header
         .navbar-header
             a.navbar-brand(href='/') LncWwn
-        ul.nav.navbar-nav.navbar-right
-            li.js-navbar-dropdown-area
-                - if (locals.currentUser)
-                    a(href='javascript:;').js-navbar-toggle #{locals.currentUser.nick}
-                        span.caret
-                    .navbar-dropdown-panel
-                        .navbar-dropdown-body
-                            a(href='javascript:;').navbar-dropdown-item.text-white 注销
-                - else
-                    a(href='/users/login') 登录
+        .collapse.navbar-collapse
+            ul.nav.navbar-nav
+                li
+                    a(href='#') 专栏
+            ul.nav.navbar-nav.navbar-right
+                li.js-navbar-dropdown-area
+                    - if (locals.currentUser)
+                        a(href='javascript:;').js-navbar-toggle #{locals.currentUser.nick}
+                            span.caret
+                        .navbar-dropdown-panel
+                            .navbar-dropdown-body
+                                a(href='javascript:;').navbar-dropdown-item.text-white 开通专栏
+                                a(href='javascript:;').navbar-dropdown-item.text-white 注销
+                    - else
+                        a(href='/users/login') 登录
