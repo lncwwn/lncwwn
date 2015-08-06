@@ -13,9 +13,14 @@
                     strong #{post.title}
             .post-body
                 - if (post.showMore) {
-                    p #{post.summary}...
-                    a.text-primary(href='javascript:;')
-                        small 显示全文
+                    p.js-post-summary #{post.summary}...
+                    p.hidden.js-post-content #{post.content}
+                    a.text-primary.js-hide-post-content.hidden(href='javascript:;')
+                        small.text-primary
+                            u 收起
+                    a.text-primary.js-show-post-content(href='javascript:;')
+                        small.text-primary
+                            u 显示全文
                 - } else {
                     p #{post.content}
                 - }
