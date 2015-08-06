@@ -19,6 +19,14 @@ module.exports = {
 
             return posts;
         });
+    },
+
+    getPostById: function(id) {
+        return PostMapper.getPostById(id).then(function(post) {
+            post['created'] = moment(post['created']).format('YYYY-MM-DD HH:mm:ss');
+
+            return post;
+        });
     }
 
 };

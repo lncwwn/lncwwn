@@ -64,4 +64,11 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/:id', function(req, res, next) {
+    var postId = req.params.id;
+    PostService.getPostById(postId).then(function(post) {
+        res.render('post', {post: post});
+    });
+});
+
 module.exports = router;

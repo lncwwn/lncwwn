@@ -107,6 +107,10 @@ input[type="checkbox"] {
     line-height: 21px;
 }
 
+.post-body p {
+    margin-bottom: 3px;
+}
+
 .login-panel {
     margin-top: 136px;
 }

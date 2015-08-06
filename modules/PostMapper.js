@@ -22,4 +22,14 @@ PostMapper.list = function(offset, limit) {
     });
 };
 
+PostMapper.getPostById = function(id) {
+    return Post.findOne({
+        where: {
+            id: id
+        }
+    }).then(function(post) {
+        return post;
+    });
+};
+
 module.exports = PostMapper;
