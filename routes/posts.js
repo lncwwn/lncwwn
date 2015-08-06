@@ -8,6 +8,14 @@ var UserService = require('../services/UserService');
 router.get('/', function(req, res, next) {
     PostService.list().then(function(posts) {
 
+        posts.forEach(function(post) {
+            post.showMore = false;
+            if (post.content.length > 236) {
+                post.showMore = true;
+                post.summary = post.content.substr(0, 236);
+            }
+        });
+
         var authors = posts.map(function(post) {
             return post.getUser();
         });

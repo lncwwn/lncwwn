@@ -12,5 +12,11 @@
                 a.text-primary(href='post/#{post.id}')
                     strong #{post.title}
             .post-body
-                p #{post.content}
+                - if (post.showMore) {
+                    p #{post.summary}...
+                    a.text-primary(href='javascript:;')
+                        small 显示全文
+                - } else {
+                    p #{post.content}
+                - }
 - })
