@@ -1,10 +1,10 @@
 - posts.forEach(function(post, index) {
-    .col-md-1.col-md-offset-2
+    .col-md-1.col-md-offset-2.js-post-item(data-post-id='#{post.id}')
         .post-interactive.pull-right
-            .post-assent
+            .post-assent.js-post-assent
                 span.glyphicon.glyphicon-triangle-top
                 div #{post.interactionData.like}
-            .post-oppose
+            .post-oppose.js-post-oppose
                 span.glyphicon.glyphicon-triangle-bottom
     .col-md-9.basic-col-md
         .col-md-12.basic-col-md

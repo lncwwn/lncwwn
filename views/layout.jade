@@ -13,6 +13,7 @@ html
             include header
             block content
         include footer
+        .hidden#js-current-user(data-current-user='#{locals.currentUser.id}')
     script(src='/jquery/dist/jquery.min.js')
     script(src='/bootstrap/dist/js/bootstrap.min.js')
     script(src='/javascripts/app.js')

@@ -4,6 +4,7 @@ var Promise = require('bluebird');
 var Post = require('../models/Post');
 var PostService = require('../services/PostService');
 var UserService = require('../services/UserService');
+var InteractionService = require('../services/InteractionService');
 
 router.get('/', function(req, res, next) {
     PostService.list().then(function(posts) {
@@ -69,6 +70,13 @@ router.get('/:id', function(req, res, next) {
     PostService.getPostById(postId).then(function(post) {
         res.render('post', {post: post});
     });
+});
+
+router.post('/interact', function(req, res, next) {
+    var userId = req.body.userId;
+    var postId = req.body.postId;
+    InteractionService.add(userId, postId);
+    res.json('dsdfdfddfdfd');
 });
 
 module.exports = router;
