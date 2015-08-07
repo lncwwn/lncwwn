@@ -10,10 +10,9 @@
                 li.js-navbar-dropdown-area
                     - if (locals.currentUser)
                         a(href='javascript:;').js-navbar-toggle #{locals.currentUser.nick}
-                            span.caret
                         .navbar-dropdown-panel
                             .navbar-dropdown-body
-                                a(href='javascript:;').navbar-dropdown-item.text-white 开通专栏
+                                a(href='javascript:;').navbar-dropdown-item.text-white 我的专栏
                                 a(href='/users/logout').navbar-dropdown-item.text-white 注销
                     - else
                         a(href='/users/login') 登录

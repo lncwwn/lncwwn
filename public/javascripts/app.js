@@ -10,10 +10,11 @@
 ;(function($) {
 
     $('body')
-    .off('click', '.js-navbar-toggle').on('click', '.js-navbar-toggle', function(e) {
+    .off('mouseenter', '.js-navbar-toggle')
+    .on('mouseenter', '.js-navbar-toggle', function(e) {
         e.stopPropagation();
         $('.navbar-dropdown-panel').toggle();
-    }).on('click', 'div:not(".js-navbar-dropdown-area")', function(e) {
+    }).on('mouseleave', 'div:not(".js-navbar-dropdown-area")', function(e) {
         $('.navbar-dropdown-panel').hide();
     }).on('click', '.js-show-post-content', function() {
         var parent = $(this).closest('.post-body');
