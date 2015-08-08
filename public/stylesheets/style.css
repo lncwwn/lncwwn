@@ -61,15 +61,15 @@ input[type="checkbox"] {
 .navbar-dropdown-body {
     margin-top: 50px;
     padding: 6px 0 16px 0;
-    border-top: 1px solid #235B65;
+    border-top: 1px solid #235b65;
 }
 
 .navbar-dropdown-item {
     width: 100%;
-    height: 36px;
+    height: 33px;
     display: inline-block;
     text-align: center;
-    line-height: 36px;
+    line-height: 33px;
     border-bottom: 1px solid #235b65;
 }
 
@@ -183,6 +183,35 @@ input[type="checkbox"] {
     -webkit-filter: none;
 }
 
+.edit-post {
+    min-height: 450px;
+    position: absolute;
+    z-index: 100;
+    top: 10%;
+    border: 1px solid #dee4e6;
+    border-radius: 3px;
+    box-shadow: 0 0 6px #dee4e6;
+    background-color: #fff;
+}
+
+.edit-post-head {
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #c6e2f1;
+    opacity: .3;
+}
+
 .footer {
     width: 100%;
     height: 123px;
@@ -191,6 +220,6 @@ input[type="checkbox"] {
     margin-top: 26px;
     padding-top: 10px;
     text-align: center;
-    border-top: 6px solid #618FAB;
+    border-top: 6px solid #618fab;
     background-color: #1b4b67;
 }

@@ -7,11 +7,36 @@
 
 'use strict';
 
-;(function($) {
+;(function($, window, undefined) {
+
+    var editPanelFullScreen = false;
+
+    /**
+     * 在页面加载后做一些初始化动作
+     */
+    function pageInit() {
+        var hash = window.location.hash;
+        var hashValue = hash.replace('#', '');
+        if (hashValue === 'edit_post') {
+            editPost();
+        }
+    }
+
+    pageInit();
+
+    /**
+     * 创建／编辑文章
+     */
+    function editPost() {
+        $('#mask').removeClass('hidden');
+        $('#js-edit-post').removeClass('hidden');
+        window.location.hash = 'edit_post'
+    }
 
     /**
      * 赞同文章
-     *
+     * @param userId
+     * @param postId
      */
     function assentPost(that, userId, postId) {
         $.post('/posts/interact', {userId: userId, postId: postId}, function(data) {
@@ -20,6 +45,33 @@
                 $(that).find('.js-post-assent-count').text(count);
             }
         });
+    }
+
+    /**
+     * 最大化文章编辑面板
+     */
+    function expandEditPanel(that) {
+        $('#js-edit-post>.edit-post')
+        .removeClass('col-md-6 col-md-offset-3')
+        .addClass('col-md-12')
+        .css('top', '5%');
+        $(that).text('还原');
+    }
+
+    /**
+     * 还原文章编辑面板
+     */
+    function resetEditPanel(that) {
+        $('#js-edit-post>.edit-post')
+        .removeClass('col-md-12')
+        .addClass('col-md-6 col-md-offset-3')
+        .css('top', '10%');
+        $(that).text('全屏');
+    }
+
+    function closeEditPanel() {
+        $('#js-edit-post>.edit-post').addClass('hidden');
+        $('#mask').addClass('hidden');
     }
 
     $('body')
@@ -49,8 +101,25 @@
         var postId = $(this).closest('.js-post-item').data('post-id');
         assentPost(this, userId, postId);
     }).on('click', '.js-post-oppose', function() {
-        // 不赞成文章
+        // 不赞同文章
         alert();
+    }).on('click', '#js-edit-post-link', function(e) {
+        e.stopPropagation();
+        editPost();
+    }).on('click', '.js-resize-edit-panel', function() {
+        if (!editPanelFullScreen) {
+            expandEditPanel(this);
+            editPanelFullScreen = true;
+        } else {
+            resetEditPanel(this);
+            editPanelFullScreen = false;
+        }
+
+    }).on('click', '.js-close-edit-panel', function() {
+        closeEditPanel();
+        var currentHash = window.location.hash;
+        var hash = currentHash.replace('edit_post', '');
+        window.location.hash = hash;
     });
 
-})(jQuery);
+})(jQuery, window);
