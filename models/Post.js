@@ -11,7 +11,7 @@ let User = require('./User');
 let Interaction = require('./Interaction');
 
 let Post = sequelize.define('post', {
-    id: {type: Sequelize.INTEGER, primaryKey: true},
+    id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
     author: Sequelize.INTEGER,
     title: Sequelize.STRING,
     content: Sequelize.TEXT,

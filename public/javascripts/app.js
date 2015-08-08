@@ -13,9 +13,12 @@
      * 赞同文章
      *
      */
-    function assentPost(userId, postId) {
+    function assentPost(that, userId, postId) {
         $.post('/posts/interact', {userId: userId, postId: postId}, function(data) {
-            console.log(data);
+            if (!data.error) {
+                var count = data.count;
+                $(that).find('.js-post-assent-count').text(count);
+            }
         });
     }
 
@@ -44,7 +47,7 @@
         // 赞同文章
         var userId = $('#js-current-user').data('current-user');
         var postId = $(this).closest('.js-post-item').data('post-id');
-        assentPost(userId, postId);
+        assentPost(this, userId, postId);
     }).on('click', '.js-post-oppose', function() {
         // 不赞成文章
         alert();

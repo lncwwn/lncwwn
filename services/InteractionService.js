@@ -12,7 +12,11 @@ let InteractionMapper = require('../modules/InteractionMapper');
 module.exports = {
 
     addLike: function(userId, postId) {
-        InteractionMapper.addLike(userId, postId);
+        return InteractionMapper.addLike(userId, postId);
+    },
+
+    count: function(postId) {
+        return InteractionMapper.count(postId);
     }
 
 };

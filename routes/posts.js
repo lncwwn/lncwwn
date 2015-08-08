@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
         Promise.settle(authors).then(function(results) {
             posts.forEach(function(post) {
                 results.forEach(function(result) {
-                    let author = result.value();
+                    const author = result.value();
                     if (post['author'] === author['id']) {
                         post['author'] = author;
                     }
@@ -40,7 +40,7 @@ router.get('/', function(req, res, next) {
             Promise.settle(interactions).then(function(results) {
                 posts.forEach(function(post) {
                     post.interactionData = {};
-                    let interaction = post.interaction;
+                    const interaction = post.interaction;
                     if (interaction && interaction.length > 0) {
                         let read = 0, like = 0, hate = 0;
                         interaction.forEach(function(i) {
@@ -68,17 +68,25 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-    let postId = req.params.id;
+    const postId = req.params.id;
     PostService.getPostById(postId).then(function(post) {
         res.render('post', {post: post});
     });
 });
 
 router.post('/interact', function(req, res, next) {
-    let userId = req.body.userId;
-    let postId = req.body.postId;
-    InteractionService.addLike(userId, postId);
-    res.json('dsdfdfddfdfd');
+    const userId = req.body.userId;
+    const postId = req.body.postId;
+    InteractionService.addLike(userId, postId).spread(function(interaction, created) {
+        if (created) {
+            InteractionService.count(postId).then(function(num) {
+                res.json({count: num});
+            });
+        } else {
+            res.json({error: true});
+        }
+    });
+
 });
 
 module.exports = router;

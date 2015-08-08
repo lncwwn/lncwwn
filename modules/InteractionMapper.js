@@ -10,11 +10,15 @@ let Interaction = require('../models/Interaction');
 let InteractionMapper = {};
 
 InteractionMapper.addLike = function(userId, postId) {
-    return Interaction.findOrCreate({where: {user: userId, post: postId}, defaults: {like: true, hate: false}})
-        .spread(function(interaction, created) {
-            console.log(interaction);
-            console.log(created);
-    });
+    return Interaction.findOrCreate({where: {user: userId, post: postId}, defaults: {like: true, hate: false}});
 };
+
+/**
+ * gets count of the specified post
+ * @param postId specified post id
+ */
+InteractionMapper.count = function(postId) {
+    return Interaction.count({where: {post: postId}});
+}
 
 module.exports = InteractionMapper;

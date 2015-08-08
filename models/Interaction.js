@@ -9,7 +9,7 @@ let sequelize = require('../modules/sequelize');
 let Sequelize = require('sequelize');
 
 let Interaction = sequelize.define('interaction', {
-    id: Sequelize.INTEGER,
+    id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
     user: Sequelize.INTEGER,
     post: Sequelize.INTEGER,
     read: Sequelize.INTEGER,
