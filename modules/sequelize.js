@@ -5,10 +5,10 @@
  * @date 2015/07/29
  */
 
-var Sequelize = require('sequelize');
-var dbConfig = require('../config/db.config');
+let Sequelize = require('sequelize');
+let dbConfig = require('../config/db.config');
 
-var sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+let sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
     host: dbConfig.host,
     dialect: 'mysql',
 

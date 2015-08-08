@@ -5,12 +5,12 @@
  * @date 2015/07/30
  */
 
-var sequelize = require('../modules/sequelize');
-var Sequelize = require('sequelize');
-var User = require('./User');
-var Interaction = require('./Interaction');
+let sequelize = require('../modules/sequelize');
+let Sequelize = require('sequelize');
+let User = require('./User');
+let Interaction = require('./Interaction');
 
-var Post = sequelize.define('post', {
+let Post = sequelize.define('post', {
     id: {type: Sequelize.INTEGER, primaryKey: true},
     author: Sequelize.INTEGER,
     title: Sequelize.STRING,

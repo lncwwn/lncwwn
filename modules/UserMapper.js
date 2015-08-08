@@ -5,9 +5,9 @@
  * @date 2015/07/30
  */
 
-var User = require('../models/User');
+let User = require('../models/User');
 
-var UserMapper = {};
+let UserMapper = {};
 
 UserMapper.list = function(offset, limit) {
     if (typeof offset === 'undefined') offset = 0;

@@ -5,9 +5,9 @@
  * @date 2015/07/30
  */
 
-var moment = require('moment');
-var User = require('../models/User');
-var UserMapper = require('../modules/UserMapper');
+let moment = require('moment');
+let User = require('../models/User');
+let UserMapper = require('../modules/UserMapper');
 
 module.exports = {
 

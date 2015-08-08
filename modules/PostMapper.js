@@ -5,9 +5,9 @@
  * @date 2015/07/30
  */
 
-var Post = require('../models/Post');
+let Post = require('../models/Post');
 
-var PostMapper = {};
+let PostMapper = {};
 
 PostMapper.list = function(offset, limit) {
     if (typeof offset === 'undefined') offset = 0;

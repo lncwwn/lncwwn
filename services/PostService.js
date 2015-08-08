@@ -5,9 +5,9 @@
  * @date 2015/07/30
  */
 
-var moment = require('moment');
-var Post = require('../models/Post');
-var PostMapper = require('../modules/PostMapper');
+let moment = require('moment');
+let Post = require('../models/Post');
+let PostMapper = require('../modules/PostMapper');
 
 module.exports = {
 

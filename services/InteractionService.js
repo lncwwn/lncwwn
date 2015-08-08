@@ -5,14 +5,14 @@
  * @date 2015/08/07
  */
 
-var moment = require('moment');
-var Interaction = require('../models/Interaction');
-var InteractionMapper = require('../modules/InteractionMapper');
+let moment = require('moment');
+let Interaction = require('../models/Interaction');
+let InteractionMapper = require('../modules/InteractionMapper');
 
 module.exports = {
 
-    add: function(userId, postId) {
-        InteractionMapper.add(userId, postId);
+    addLike: function(userId, postId) {
+        InteractionMapper.addLike(userId, postId);
     }
 
 };

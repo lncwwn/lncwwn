@@ -5,10 +5,10 @@
  * @date 2015/008/01
  */
 
-var sequelize = require('../modules/sequelize');
-var Sequelize = require('sequelize');
+let sequelize = require('../modules/sequelize');
+let Sequelize = require('sequelize');
 
-var Interaction = sequelize.define('interaction', {
+let Interaction = sequelize.define('interaction', {
     id: Sequelize.INTEGER,
     user: Sequelize.INTEGER,
     post: Sequelize.INTEGER,

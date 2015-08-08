@@ -5,10 +5,10 @@
  * @date 2015/07/29
  */
 
-var sequelize = require('../modules/sequelize');
-var Sequelize = require('sequelize');
+let sequelize = require('../modules/sequelize');
+let Sequelize = require('sequelize');
 
-var User = sequelize.define('user', {
+let User = sequelize.define('user', {
     id: {type: Sequelize.INTEGER, primaryKey: true},
     nick: Sequelize.STRING,
     password: Sequelize.STRING,

@@ -77,7 +77,7 @@ router.get('/:id', function(req, res, next) {
 router.post('/interact', function(req, res, next) {
     let userId = req.body.userId;
     let postId = req.body.postId;
-    InteractionService.add(userId, postId);
+    InteractionService.addLike(userId, postId);
     res.json('dsdfdfddfdfd');
 });
 
