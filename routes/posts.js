@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var Promise = require('bluebird');
-var Post = require('../models/Post');
-var PostService = require('../services/PostService');
-var UserService = require('../services/UserService');
-var InteractionService = require('../services/InteractionService');
+let express = require('express');
+let router = express.Router();
+let Promise = require('bluebird');
+let Post = require('../models/Post');
+let PostService = require('../services/PostService');
+let UserService = require('../services/UserService');
+let InteractionService = require('../services/InteractionService');
 
 router.get('/', function(req, res, next) {
     PostService.list().then(function(posts) {
@@ -17,11 +17,11 @@ router.get('/', function(req, res, next) {
             }
         });
 
-        var authors = posts.map(function(post) {
+        let authors = posts.map(function(post) {
             return post.getUser();
         });
 
-        var interactions = posts.map(function(post) {
+        let interactions = posts.map(function(post) {
             return post.getInteractions().then(function(interaction) {
                 post.interaction = interaction;
             });
@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
         Promise.settle(authors).then(function(results) {
             posts.forEach(function(post) {
                 results.forEach(function(result) {
-                    var author = result.value();
+                    let author = result.value();
                     if (post['author'] === author['id']) {
                         post['author'] = author;
                     }
@@ -40,9 +40,9 @@ router.get('/', function(req, res, next) {
             Promise.settle(interactions).then(function(results) {
                 posts.forEach(function(post) {
                     post.interactionData = {};
-                    var interaction = post.interaction;
+                    let interaction = post.interaction;
                     if (interaction && interaction.length > 0) {
-                        var read = 0, like = 0, hate = 0;
+                        let read = 0, like = 0, hate = 0;
                         interaction.forEach(function(i) {
                             read += i.read;
                             if (i.like) like++;
@@ -58,7 +58,9 @@ router.get('/', function(req, res, next) {
                     }
                 });
 
-                res.render('posts', {posts: posts, title: '文章列表'});
+                const title = '文章列表';
+
+                res.render('posts', {posts: posts, title: title});
             });
 
         });
@@ -66,15 +68,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-    var postId = req.params.id;
+    let postId = req.params.id;
     PostService.getPostById(postId).then(function(post) {
         res.render('post', {post: post});
     });
 });
 
 router.post('/interact', function(req, res, next) {
-    var userId = req.body.userId;
-    var postId = req.body.postId;
+    let userId = req.body.userId;
+    let postId = req.body.postId;
     InteractionService.add(userId, postId);
     res.json('dsdfdfddfdfd');
 });
