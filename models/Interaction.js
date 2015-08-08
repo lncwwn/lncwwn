@@ -14,7 +14,8 @@ let Interaction = sequelize.define('interaction', {
     post: Sequelize.INTEGER,
     read: Sequelize.INTEGER,
     like: Sequelize.BOOLEAN,
-    hate: Sequelize.BOOLEAN
+    hate: Sequelize.BOOLEAN,
+    created: {type: Sequelize.TIME, defaultValue: Sequelize.NOW}
 }, {
     timestamps: false,
     underscored: true,

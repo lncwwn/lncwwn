@@ -27,8 +27,9 @@ body {
     color: #fff;
 }
 
-.navbar-default a:hover {
-    color: red;
+.navbar-default a:hover,
+.navbar-default .navbar-brand:hover {
+    color: #fff;
 }
 
 .navbar-default .navbar-nav>li>a:hover {

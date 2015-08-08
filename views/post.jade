@@ -2,4 +2,9 @@ extends layout
 
 block content
     .container-fluid
-        h3 #{post.title}
+        .col-md-5.col-md-offset-3
+            .post-body
+                h4.text-muted #{post.title}
+                p #{post.content}
+        .col-md-3.basic-col-md
+            include right_area
