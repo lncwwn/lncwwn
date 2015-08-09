@@ -10,6 +10,7 @@ let RedisStore = require('connect-redis')(session);
 let routes = require('./routes/index');
 let users = require('./routes/users');
 let posts = require('./routes/posts');
+let resource = require('./routes/resource');
 
 let redisConfig = require('./config/redis.config.json');
 
@@ -48,6 +49,7 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/posts', posts);
+app.use('/resource', resource);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
