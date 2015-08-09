@@ -33,8 +33,22 @@
 
     function textAreaInit() {
         var editor = new Simditor({
-            textarea: $('#js-edit-post-textarea')
-            //optional options
+            textarea: $('#js-edit-post-textarea'),
+            toolbar: [
+                        'bold',
+                        'italic',
+                        'underline',
+                        'color',
+                        'ol',
+                        'ul',
+                        'blockquote',
+                        'code',
+                        'table',
+                        'hr',
+                        'indent',
+                        'outdent',
+                        'alignment'
+                     ]
         });
     }
 
