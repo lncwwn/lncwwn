@@ -13,7 +13,6 @@ html
             include header
             block content
             include edit_post
-            .mask#mask.hidden
         include footer
         - if (locals.currentUser) {
             .hidden#js-current-user(data-current-user='#{locals.currentUser.id}')

@@ -12,6 +12,10 @@ body {
     margin-bottom: 160px;
 }
 
+textarea {
+    resize: none;
+}
+
 .header {
     width: 63%;
     margin: 0 auto;

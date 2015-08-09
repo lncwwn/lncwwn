@@ -15,11 +15,7 @@
      * 在页面加载后做一些初始化动作
      */
     function pageInit() {
-        var hash = window.location.hash;
-        var hashValue = hash.replace('#', '');
-        if (hashValue === 'edit_post') {
-            editPost();
-        }
+        // TODO
     }
 
     pageInit();
@@ -28,9 +24,10 @@
      * 创建／编辑文章
      */
     function editPost() {
-        $('#mask').removeClass('hidden');
-        $('#js-edit-post').removeClass('hidden');
-        window.location.hash = 'edit_post'
+        $('#js-edit-post-panel').modal({
+            show: true,
+            backdrop: false
+        });
     }
 
     /**
