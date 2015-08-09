@@ -118,7 +118,7 @@
     }).on('click', '.js-close-edit-panel', function() {
         closeEditPanel();
         var currentHash = window.location.hash;
-        var hash = currentHash.replace('edit_post', '');
+        var hash = currentHash.replace('#edit_post', '');
         window.location.hash = hash;
     });
 

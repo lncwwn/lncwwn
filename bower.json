@@ -1,9 +1,22 @@
 {
   "name": "lncwwn",
   "version": "0.0.1",
-  "dependencies": {},
-  "private": true,
   "devDependencies": {
     "bootstrap": "~3.3.5"
-  }
+  },
+  "homepage": "https://github.com/lncwwn/lncwwn",
+  "authors": [
+    "victor <lncwwn@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
