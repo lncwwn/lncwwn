@@ -2,7 +2,8 @@
   "name": "lncwwn",
   "version": "0.0.1",
   "devDependencies": {
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "simditor": "~2.2.3"
   },
   "homepage": "https://github.com/lncwwn/lncwwn",
   "authors": [

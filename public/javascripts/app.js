@@ -24,9 +24,17 @@
      * 创建／编辑文章
      */
     function editPost() {
+        textAreaInit();
         $('#js-edit-post-panel').modal({
             show: true,
             backdrop: false
+        });
+    }
+
+    function textAreaInit() {
+        var editor = new Simditor({
+            textarea: $('#js-edit-post-textarea')
+            //optional options
         });
     }
 
