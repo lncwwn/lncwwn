@@ -270,3 +270,27 @@ input[type="checkbox"] {
 .post-info-btn {
     margin-top: 10px;
 }
+
+/******************************* setting page *********************************/
+
+.setting-item {
+    width: 100%;
+}
+
+.setting-item-head {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 5px;
+    padding: 0 10px;
+    line-height: 45px;
+    border-bottom: 2px solid #eee;
+}
+
+.setting-item-body {
+    padding-top: 18px;
+}
+
+.avatar-btn {
+    width: 100%;
+    margin-top: 10px;
+}

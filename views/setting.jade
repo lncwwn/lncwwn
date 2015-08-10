@@ -1,4 +1,77 @@
 extends layout
 
 block content
-    img(src='#{locals.currentUser.avatar}')
+    .container-fluid
+        .row
+            .col-md-5.col-md-offset-3
+                .setting-item
+                    .setting-item-head
+                        strong 个人资料
+                    .setting-item-body.row
+                        .col-md-3
+                            .avatar-area
+                            - if (locals.currentUser.avatar)
+                                img.img-thumbnail(src='#{locals.currentUser.avatar}' width='168px' height='168px')
+                            - else
+                                img.img-thumbnail(src='/images/avatar.png' width='168px' height='168px')
+                            .avatar-btn
+                                button.btn.btn-default 修改头像
+                        .col-md-9
+                            form.form-horizontal
+                                div.form-group
+                                    label.col-sm-2.control-label 昵称
+                                    .col-sm-8
+                                        input.form-control(name='nick' type='text' value='#{locals.currentUser.nick}' disabled)
+                                div.form-group
+                                    label.col-sm-2.control-label 性别
+                                    .col-sm-8
+                                        .checkbox
+                                            label
+                                                input(type='radio' name='gender' value='1')
+                                                | 男
+                                            label
+                                                input(type='radio' name='gender' value='2')
+                                                | 女
+                                            label
+                                                input(type='radio' name='gender' value='0')
+                                                | 保密
+                                div.form-group
+                                    label.col-sm-2.control-label 生日
+                                    .col-sm-8
+                                        input.form-control(name='birthday' type='date')
+                                div.form-group
+                                    label.col-sm-2.control-label 城市
+                                    .col-sm-8
+                                        input.form-control(name='city' type='text')
+                                div.form-group
+                                    label.col-sm-2.control-label 邮寄地址
+                                    .col-sm-8
+                                        input.form-control(name='address' type='text')
+                                div.form-group
+                                    label.col-sm-2.control-label 个人介绍
+                                    .col-sm-8
+                                        textarea.form-control(name='intro' rows='6')
+                                div.form-group
+                                    .col-sm-1.col-sm-offset-7
+                                        button.btn.btn-primary 确认修改
+                .setting-item
+                    .setting-item-head
+                        strong 密码修改
+                    .setting-item-body.row
+                        .col-md-9.col-md-offset-3
+                            form.form-horizontal
+                                div.form-group
+                                    label.col-sm-2.control-label 当前密码
+                                    .col-sm-8
+                                        input.form-control(name='old_password' type='password')
+                                div.form-group
+                                    label.col-sm-2.control-label 新密码
+                                    .col-sm-8
+                                        input.form-control(name='new_password' type='password')
+                                div.form-group
+                                    label.col-sm-2.control-label 确认密码
+                                    .col-sm-8
+                                        input.form-control(name='new_password_confirm' type='password')
+                                div.form-group
+                                    .col-sm-1.col-sm-offset-7
+                                        button.btn.btn-primary 确认修改
