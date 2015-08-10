@@ -49,10 +49,14 @@ router.get('/logout', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-    let userId = req.params.id;
+    const userId = req.params.id;
     UserService.findById(userId).then(function(user) {
         res.render('profile', {user: user});
     });
+});
+
+router.get('/setting/:id', function(req, res, next) {
+    res.render('setting');
 });
 
 module.exports = router;

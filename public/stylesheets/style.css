@@ -7,7 +7,7 @@ body {
     padding: 78px 0 0;
     font: 14px "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Tahoma, Helvetica, Arial, sans-serif;
     background-color: #fff;
-    color: #333;
+    color: #666;
     margin-bottom: 160px;
 }
 
@@ -127,6 +127,8 @@ input[type="checkbox"] {
 
 .post-body p {
     margin-bottom: 3px;
+    text-indent: 1em;
+    line-height: 1.7em;
 }
 
 .hover-link:hover {
@@ -233,7 +235,20 @@ input[type="checkbox"] {
     border-radius: 3px;
 }
 
+/****************************** right area ***********************************/
+
+.about-area {
+    width: 100%;
+    height: 100px;
+    padding: 6px;
+    font-size: 13px;
+}
+
 /******************************* single post **********************************/
+
+#single-post .post-body p {
+    font-size: 16px;
+}
 
 .post-head-area {
     width: 100%;
@@ -253,5 +268,5 @@ input[type="checkbox"] {
 }
 
 .post-info-btn {
-    margin-top: 6px;
+    margin-top: 10px;
 }
