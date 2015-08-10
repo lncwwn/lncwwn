@@ -12,9 +12,9 @@
                             a(href='javascript:;').js-navbar-toggle
                                 span #{locals.currentUser.nick} &nbsp;&nbsp;
                                 - if (locals.currentUser.avatar)
-                                    img(src='#{locals.currentUser.avatar}' width='25' height='25')
+                                    img.user-avatar-md(src='#{locals.currentUser.avatar}')
                                 - else
-                                    img(src='images/avatar.png' width='25' height='25')
+                                    img.user-avatar-md(src='images/avatar.png')
                             .navbar-dropdown-panel
                                 .navbar-dropdown-body
                                     a(href='javascript:;').navbar-dropdown-item.text-white#js-edit-post-link 写文章

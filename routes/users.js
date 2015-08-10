@@ -25,6 +25,7 @@ router.post('/login', function(req, res, next) {
         UserService.findByNick(nick).then(function(user) {
             if (user.password === password) {
                 let cookieUser = user;
+                cookieUser.password = null;
                 req.session.currentUser = user;
                 req.session.save(function(err) {
                     console.log(err);

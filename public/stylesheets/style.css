@@ -228,9 +228,9 @@ input[type="checkbox"] {
 /******************************* header ***************************************/
 
 .user-avatar-md {
-    width: 30px;
-    height: 30px;
-    border: 1px solid red;
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
 }
 
 /******************************* single post **********************************/
