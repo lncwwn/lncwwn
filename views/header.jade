@@ -5,12 +5,16 @@
         .collapse.navbar-collapse
             ul.nav.navbar-nav
                 li
-                    a(href='#') 专栏
+                    a(href='#')
+                        strong 专栏
+                li
+                    a(href='#')
+                        strong 活动
             ul.nav.navbar-nav.navbar-right
                     - if (locals.currentUser)
                         li.js-navbar-dropdown-area
                             a(href='javascript:;').js-navbar-toggle
-                                span #{locals.currentUser.nick} &nbsp;&nbsp;
+                                strong #{locals.currentUser.nick} &nbsp;&nbsp;
                                 - if (locals.currentUser.avatar)
                                     img.user-avatar-md(src='#{locals.currentUser.avatar}')
                                 - else

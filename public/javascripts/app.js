@@ -39,6 +39,10 @@
         }
     }
 
+    function uploadAvatar() {
+        $('#actual-avatar-upload').click();
+    }
+
     /**
      * 创建／编辑文章
      */
@@ -156,6 +160,8 @@
         var currentHash = window.location.hash;
         var hash = currentHash.replace('#edit_post', '');
         window.location.hash = hash;
+    }).on('click', '#pretend-avatar-upload', function() {
+        uploadAvatar();
     });
 
 })(jQuery, window);

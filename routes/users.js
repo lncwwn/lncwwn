@@ -56,6 +56,9 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.get('/setting/:id', function(req, res, next) {
+    if (!req.session.currentUser) {
+        res.render('login');
+    }
     res.render('setting');
 });
 

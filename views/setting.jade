@@ -10,12 +10,13 @@ block content
                     .setting-item-body.row
                         .col-md-3
                             .avatar-area
-                            - if (locals.currentUser.avatar)
-                                img.img-thumbnail(src='#{locals.currentUser.avatar}' width='168px' height='168px')
-                            - else
-                                img.img-thumbnail(src='/images/avatar.png' width='168px' height='168px')
+                                - if (locals.currentUser.avatar)
+                                    img.img-rounded(src='#{locals.currentUser.avatar}' width='168px' height='168px')
+                                - else
+                                    img.img-rounded(src='/images/avatar.png' width='168px' height='168px')
                             .avatar-btn
-                                button.btn.btn-default 修改头像
+                                button.btn.btn-info#pretend-avatar-upload 修改头像
+                                input#actual-avatar-upload.hidden(type='file' name='avatar')
                         .col-md-9
                             form.form-horizontal
                                 div.form-group
@@ -75,3 +76,5 @@ block content
                                 div.form-group
                                     .col-sm-1.col-sm-offset-7
                                         button.btn.btn-primary 确认修改
+            .col-md-3.basic-col-md
+                include right_area
