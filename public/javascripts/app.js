@@ -15,10 +15,29 @@
      * 在页面加载后做一些初始化动作
      */
     function pageInit() {
-        // TODO
+        showWarning();
     }
 
     pageInit();
+
+    /**
+     * 检测古老的浏览器
+     * @return boolean
+     */
+    function checkOldAgent() {
+        var mode;
+        if (mode = document.documentMode && mode < 9) {
+            return false;
+        }
+
+        return true;
+    }
+
+    function showWarning() {
+        if (!checkOldAgent()) {
+            $('#js-warning-panel').removeClass('hidden');
+        }
+    }
 
     /**
      * 创建／编辑文章
@@ -38,11 +57,9 @@
                         'bold',
                         'italic',
                         'underline',
-                        'color',
                         'ol',
                         'ul',
                         'blockquote',
-                        'code',
                         'table',
                         'hr',
                         'indent',

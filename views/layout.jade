@@ -6,11 +6,13 @@ html
             | |#{title}
             | [读万卷书，行万里路]
         meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
         link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel='stylesheet', href='/simditor/styles/simditor.css')
     body
         .container-fluid
+            include warning
             include header
             block content
             include edit_post
