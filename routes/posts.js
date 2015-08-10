@@ -70,7 +70,10 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
     const postId = req.params.id;
     PostService.getPostById(postId).then(function(post) {
-        res.render('post', {post: post});
+        post.getUser().then(function(author) {
+            post.author = author;
+            res.render('post', {post: post});
+        });
     });
 });
 

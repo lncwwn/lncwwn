@@ -15,6 +15,8 @@ module.exports = {
         return PostMapper.list(offset, limit).then(function(posts) {
             posts.forEach(function(post, index) {
                 post['created'] = moment(post['created']).format('YYYY-MM-DD HH:mm:ss');
+                if (post['updated'])
+                    post['updated'] = moment(post['updated']).format('YYYY-MM-DD HH:mm:ss');
             });
 
             return posts;
@@ -24,6 +26,8 @@ module.exports = {
     getPostById: function(id) {
         return PostMapper.getPostById(id).then(function(post) {
             post['created'] = moment(post['created']).format('YYYY-MM-DD HH:mm:ss');
+            if (post['updated'])
+                post['updated'] = moment(post['updated']).format('YYYY-MM-DD HH:mm:ss');
 
             return post;
         });

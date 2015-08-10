@@ -7,15 +7,19 @@
                 li
                     a(href='#') 专栏
             ul.nav.navbar-nav.navbar-right
-                li.js-navbar-dropdown-area
                     - if (locals.currentUser)
-                        a(href='javascript:;').js-navbar-toggle #{locals.currentUser.nick}
-                        .navbar-dropdown-panel
-                            .navbar-dropdown-body
-                                a(href='javascript:;').navbar-dropdown-item.text-white#js-edit-post-link 写文章
-                                a(href='/posts/list/#{locals.currentUser.id}').navbar-dropdown-item.text-white 我的文章
-                                a(href='javascript:;').navbar-dropdown-item.text-white 我的专栏
-                                a(href='javascript:;').navbar-dropdown-item.text-white 我的收藏
-                                a(href='/users/logout').navbar-dropdown-item.text-white 注销
+                        li.js-navbar-dropdown-area
+                            a(href='javascript:;').js-navbar-toggle
+                                span #{locals.currentUser.nick} &nbsp;&nbsp;
+                                - if (locals.currentUser.avatar)
+                                    img(src='#{locals.currentUser.avatar}' width='25' height='25')
+                                - else
+                                    img(src='images/avatar.png' width='25' height='25')
+                            .navbar-dropdown-panel
+                                .navbar-dropdown-body
+                                    a(href='javascript:;').navbar-dropdown-item.text-white#js-edit-post-link 写文章
+                                    a(href='javascript:;').navbar-dropdown-item.text-white#js-edit-post-link 账户设置
+                                    a(href='/users/logout').navbar-dropdown-item.text-white 注销
                     - else
-                        a(href='/users/login') 登录
+                        li.js-navbar-dropdown-area
+                            a(href='/users/login') 登录

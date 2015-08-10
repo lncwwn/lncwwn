@@ -5,6 +5,13 @@ block content
         .post-head-area
             .col-md-5.col-md-offset-3
                 h3.post-title #{post.title}
+                .post-info-basic
+                    strong
+                        a(href='/users/#{post.author.id}') #{post.author.nick}
+                    span &nbsp;发表于 #{post.created}
+                    - if (post.updated) {
+                        span &nbsp;最后更新时间 #{post.updated}
+                    - }
             .col-md-3
                 div.post-info-btn
                     button.btn.btn-info.btn-sm(role='button') 赞赏

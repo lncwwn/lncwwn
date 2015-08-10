@@ -12,6 +12,7 @@ let User = sequelize.define('user', {
     id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
     nick: Sequelize.STRING,
     password: Sequelize.STRING,
+    avatar: Sequelize.STRING,
     joined: Sequelize.TIME,
     active: Sequelize.BOOLEAN
 }, {

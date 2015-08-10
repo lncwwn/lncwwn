@@ -81,7 +81,8 @@ input[type="checkbox"] {
 }
 
 ::selection {
-    background-color: #99ccff;
+    background-color: #e1e8e5;
+    color: #093850;
 }
 
 .text-white {
@@ -224,6 +225,14 @@ input[type="checkbox"] {
     background-color: #006699;
 }
 
+/******************************* header ***************************************/
+
+.user-avatar-md {
+    width: 30px;
+    height: 30px;
+    border: 1px solid red;
+}
+
 /******************************* single post **********************************/
 
 .post-head-area {
@@ -235,6 +244,12 @@ input[type="checkbox"] {
     border-radius: 0;
     color: #555;
     background-color: #e1e8e5;
+}
+
+.post-info-basic {
+    height: 30px;
+    padding-left: 16px;
+    line-height: 30px;
 }
 
 .post-info-btn {
