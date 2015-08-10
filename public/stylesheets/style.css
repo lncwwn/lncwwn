@@ -6,7 +6,6 @@ html {
 body {
     padding: 78px 0 0;
     font: 14px "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Tahoma, Helvetica, Arial, sans-serif;
-    /*background-color: #e0f6f5;*/
     background-color: #fff;
     color: #333;
     margin-bottom: 160px;
@@ -22,8 +21,8 @@ textarea {
 }
 
 .navbar-default {
-    background-color: #356E8F;
-    border-color: #356E8F;
+    background-color: #006699;
+    border-color: #006699;
 }
 
 .navbar-default .navbar-brand,
@@ -58,7 +57,7 @@ input[type="checkbox"] {
     top: 0;
     border-radius: 0 0 6px 6px;
     box-shadow: 0 0 6px #094161;
-    background-color: #1372a9;
+    background-color: #006699;
     display: none;
 }
 
@@ -109,7 +108,7 @@ input[type="checkbox"] {
 }
 
 .right-area {
-    margin-left: 26px;
+    margin: 36px 0 0 26px;
 }
 
 .post-head {
@@ -156,7 +155,7 @@ input[type="checkbox"] {
     height: 66px;
     margin-top: 36px;
     cursor: pointer;
-    color: #fff;
+    color: #1372a9;
 }
 
 .post-assent {
@@ -164,7 +163,7 @@ input[type="checkbox"] {
     height: 60%;
     padding: 5px;
     border-radius: 3px 3px 0 0;
-    background-color: #8DD2EA;
+    background-color: #d6f2f7;
     text-align: center;
 }
 
@@ -174,26 +173,13 @@ input[type="checkbox"] {
     margin-top: 5px;
     padding: 5px;
     border-radius: 0 0 3px 3px;
-    background-color: #8DD2EA;
+    background-color: #d6f2f7;
     text-align: center;
 }
 
 .post-assent:hover,
 .post-oppose:hover {
     background-color: #5e9cbf;
-}
-
-.star {
-    width: 19px;
-    height: 19px;
-    display: inline-block;
-    background: url(../images/star.png) no-repeat;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.star:hover {
-    -webkit-filter: none;
 }
 
 .edit-post {
@@ -233,6 +219,19 @@ input[type="checkbox"] {
     margin-top: 26px;
     padding-top: 10px;
     text-align: center;
-    border-top: 6px solid #618fab;
-    background-color: #1b4b67;
+    border-top: 6px solid #0099cc;
+    background-color: #006699;
+}
+
+/******************************* single post **********************************/
+
+.post-head-area {
+    width: 100%;
+    height: 126px;
+    margin: -27px 0 26px 0;
+    padding-top: 26px;
+    position: relative;
+    border-radius: 0;
+    color: #555;
+    background-color: #f0f0f0;
 }
