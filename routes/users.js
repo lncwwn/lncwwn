@@ -17,9 +17,9 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-    let nick = req.body['nick'];
-    let password = req.body['password'];
-    let rememberMe = req.body['remember-me'];
+    const nick = req.body['nick'];
+    const password = req.body['password'];
+    const rememberMe = req.body['remember-me'];
 
     if (nick && password) {
         UserService.findByNick(nick).then(function(user) {

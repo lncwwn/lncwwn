@@ -15,7 +15,7 @@ block content
                                 - else
                                     img.img-rounded(src='/images/avatar.png' width='168px' height='168px')
                             .avatar-btn
-                                button.btn.btn-info#pretend-avatar-upload 修改头像
+                                button.btn.btn-default#pretend-avatar-upload 修改头像
                                 input#actual-avatar-upload.hidden(type='file' name='avatar')
                         .col-md-9
                             form.form-horizontal
@@ -23,6 +23,7 @@ block content
                                     label.col-sm-2.control-label 昵称
                                     .col-sm-8
                                         input.form-control(name='nick' type='text' value='#{locals.currentUser.nick}' disabled)
+                                        .form-notice.text-warning 暂时不支持修改昵称
                                 div.form-group
                                     label.col-sm-2.control-label 性别
                                     .col-sm-8
@@ -43,7 +44,7 @@ block content
                                 div.form-group
                                     label.col-sm-2.control-label 城市
                                     .col-sm-8
-                                        input.form-control(name='city' type='text')
+                                        input.form-control(name='city' type='text' placeholder='如：上海市')
                                 div.form-group
                                     label.col-sm-2.control-label 邮寄地址
                                     .col-sm-8
