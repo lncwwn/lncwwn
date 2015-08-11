@@ -1,35 +1,39 @@
 - posts.forEach(function(post, index) {
-    .col-md-1.col-md-offset-2.js-post-item(data-post-id='#{post.id}')
-        .post-interactive.pull-right
-            .post-assent.js-post-assent
-                span.glyphicon.glyphicon-triangle-top
-                div.js-post-assent-count #{post.interactionData.like}
-            .post-oppose.js-post-oppose
-                span.glyphicon.glyphicon-triangle-bottom
-    .col-md-9.basic-col-md
-        .col-md-12.basic-col-md
-            .post-head
-                a.text-primary(href='posts/#{post.id}')
-                    strong #{post.title}
-            .post-body
-                - if (post.showMore) {
-                    p.js-post-summary #{post.summary}...
-                    a.text-primary.js-show-post-content.hover-link(href='javascript:;')
-                        small.text-primary 显示全文
-                    p.hidden.js-post-content #{post.content}
-                    a.text-primary.js-hide-post-content.hover-link.hidden(href='javascript:;')
-                        small.text-primary 收起
-                - } else {
-                    p #{post.content}
-                - }
-                .post-interact-btn-area
-                    a.text-primary.post-interact-btn(href='javascript:;')
-                        span.glyphicon.glyphicon-eye-open
-                        span  关注
-                    a.text-primary.post-interact-btn(href='javascript:;')
-                        span.glyphicon.glyphicon-plus
-                        span  收藏
-                    a.text-primary.post-interact-btn(href='javascript:;')
-                        span.glyphicon.glyphicon-heart-empty
-                        span  感谢
+    .post-panel
+        .col-md-1.col-md-offset-2.post-interact(data-post-id='#{post.id}')
+            .post-interactive.pull-right.js-post-interact-info
+                .post-assent-info
+                    span #{post.interactionData.like}
+            .post-interactive.pull-right.hidden
+                .post-assent
+                    span.glyphicon.glyphicon-triangle-top
+                    div.js-post-assent-count #{post.interactionData.like}
+                .post-oppose
+                    span.glyphicon.glyphicon-triangle-bottom
+        .col-md-9.basic-col-md.js-post-content
+            .col-md-12.basic-col-md
+                .post-head
+                    a.text-primary(href='posts/#{post.id}')
+                        strong #{post.title}
+                .post-body
+                    - if (post.showMore) {
+                        p.js-post-summary #{post.summary}...
+                        a.text-primary.js-show-post-content.hover-link(href='javascript:;')
+                            small.text-primary 显示全文
+                        p.hidden.js-post-content #{post.content}
+                        a.text-primary.js-hide-post-content.hover-link.hidden(href='javascript:;')
+                            small.text-primary 收起
+                    - } else {
+                        p #{post.content}
+                    - }
+                    .post-interact-btn-area
+                        a.text-primary.post-interact-btn(href='javascript:;')
+                            span.glyphicon.glyphicon-eye-open
+                            span  关注
+                        a.text-primary.post-interact-btn(href='javascript:;')
+                            span.glyphicon.glyphicon-plus
+                            span  收藏
+                        a.text-primary.post-interact-btn(href='javascript:;')
+                            span.glyphicon.glyphicon-heart-empty
+                            span  感谢
 - })

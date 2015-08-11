@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "devDependencies": {
     "bootstrap": "~3.3.5",
-    "simditor": "~2.2.3"
+    "simditor": "~2.2.3",
+    "vue": "~0.12.10",
+    "requirejs": "~2.1.20"
   },
   "homepage": "https://github.com/lncwwn/lncwwn",
   "authors": [

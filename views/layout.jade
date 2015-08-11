@@ -1,10 +1,7 @@
 doctype html
 html
     head
-        title
-            | #{locals.appName}
-            | |#{title}
-            | [读万卷书，行万里路]
+        title #{locals.appName}|#{title}[读万卷书，行万里路]
         meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
         meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
         link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
@@ -20,10 +17,6 @@ html
         - if (locals.currentUser) {
             .hidden#js-current-user(data-current-user='#{locals.currentUser.id}')
         - }
-    script(src='/jquery/dist/jquery.min.js')
-    script(src='/bootstrap/dist/js/bootstrap.min.js')
-    script(src='/simple-module/lib/module.js')
-    script(src='/simple-hotkeys/lib/hotkeys.js')
-    script(src='/simple-uploader/lib/uploader.js')
-    script(src='/simditor/lib/simditor.js')
-    script(src='/javascripts/app.js')
+    script(src='/requirejs/require.js' data-main='/javascripts/main')
+    script(data-module='global')
+    block scripts
