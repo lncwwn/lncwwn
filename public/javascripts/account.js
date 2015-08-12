@@ -43,19 +43,14 @@ define(['jcrop'], function(Jcrop) {
 
     function getPosition(image) {
         var realWidth = image.width, realHeight = image.height, scale = realWidth / realHeight, height = realHeight;
-        if (height > 500) {
-            //height = 500;
-        }
-        var width = height * scale;
+        var width = height * scale, min = height;
         if (width < height) {
-            width = width + height;
-            height = width - height;
-            width = width - height;
+            min = width;
         }
         // 选择区域正方形中心坐标
         var center = [width / 2, height / 2];
         // 计算正方形的边长
-        var side = (-1 * height + Math.sqrt(Math.pow(height, 2) + 4 * Math.pow(height, 2))) / 2;
+        var side = (-1 * min + Math.sqrt(Math.pow(min, 2) + 4 * Math.pow(min, 2))) / 2;
         var x = (width - side) / 2;
         var y = (height - side) / 2;
         return {
