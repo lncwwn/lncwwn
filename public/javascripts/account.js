@@ -42,7 +42,6 @@ define(['jcrop'], function(Jcrop) {
     }
 
     function getPosition(image) {
-        // img区域的最大高度为500
         var realWidth = image.width, realHeight = image.height, scale = realWidth / realHeight, height = realHeight;
         if (height > 500) {
             //height = 500;
