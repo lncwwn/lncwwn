@@ -36,8 +36,13 @@ define(['jcrop'], function(Jcrop) {
         if (imageFilter(file)) {
             fileReader.readAsDataURL(file);
         } else {
-            alert();
-            // TODO
+            var warningPanel = $('#js-warning-panel-common');
+            warningPanel.find('strong').text('图像尺寸过大或格式不合法');
+            warningPanel.removeClass('hidden');
+            var id = setTimeout(function() {
+                warningPanel.addClass('hidden');
+                clearTimeout(id);
+            }, 3000);
         }
     }
 
