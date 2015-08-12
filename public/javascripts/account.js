@@ -8,7 +8,7 @@
 define(['jcrop'], function(Jcrop) {
 
     var fileReader = new FileReader();
-    var types = ['png', 'jpg', 'jpeg'];
+    var types = ['image/png', 'image/jpg', 'image/jpeg'];
     var jcropApi, avatar;
 
     fileReader.onload = function(e) {
@@ -16,14 +16,32 @@ define(['jcrop'], function(Jcrop) {
         avatarReview(avatar);
     };
 
+    /**
+     * filter by image size and type
+     */
+    function imageFilter(image) {
+        if (image) {
+            // max size is 1mb
+            if (image.size > 1024 * 1000) return false;
+            if (types.indexOf(image.type) < 0) return false;
+        }
+
+        return true;
+    }
+
     function loadImage() {
         var upload = $('#actual-avatar-upload').get(0).files;
         if (upload.length === 0) return;
         var file = upload[0];
-        fileReader.readAsDataURL(file);
+        if (imageFilter(file)) {
+            fileReader.readAsDataURL(file);
+        } else {
+            alert();
+            // TODO
+        }
     }
 
-    function getImageSize(image) {
+    function getPosition(image) {
         // img区域的最大高度为500
         var realWidth = image.width, realHeight = image.height, scale = realWidth / realHeight, height = realHeight;
         if (height > 500) {
@@ -53,7 +71,7 @@ define(['jcrop'], function(Jcrop) {
     function avatarReview(data) {
         if (jcropApi) jcropApi.destroy();
         var image = $('#avatar-selector').attr('src', data);
-        var point = getImageSize(image.get(0));
+        var point = getPosition(image.get(0));
         addJcrop(point);
         $('#js-avatar-select-area').modal({
             show: true,
@@ -94,7 +112,7 @@ define(['jcrop'], function(Jcrop) {
                 console.log(data);
             });
         } else {
-            alert();
+            // TODO
         }
     });
 
