@@ -313,3 +313,18 @@ input[type="checkbox"] {
     height: 26px;
     padding-top: 6px;
 }
+
+.avatar-show-area {
+    text-align: center;
+    overflow: hidden;
+}
+
+.avatar-jcrop {
+    max-width: 500px;
+    max-height: 500px;
+    margin: 0 auto;
+}
+
+#avatar-selector {
+    margin: 0 auto;
+}

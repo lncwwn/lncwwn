@@ -7,6 +7,7 @@ require.config({
         'simditor-hotkeys': '/simple-hotkeys/lib/hotkeys',
         'simditor-module': '/simple-module/lib/module',
         'simditor-uploader': '/simple-uploader/lib/uploader',
+        'jcrop': '/javascripts/jquery.Jcrop.min',
         'global': '/javascripts/global',
         'posts': '/javascripts/posts',
         'account': '/javascripts/account'
@@ -17,6 +18,10 @@ require.config({
         },
         'simditor': {
             deps: ['simditor-hotkeys', 'simditor-module', 'simditor-uploader']
+        },
+        'jcrop': {
+            deps: ['jquery'],
+            exports: 'jQuery.Jcrop'
         }
     }
 });

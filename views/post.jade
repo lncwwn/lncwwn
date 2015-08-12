@@ -8,7 +8,7 @@ block content
                     h3.post-title #{post.title}
                     .post-info-basic
                         strong
-                            a(href='/users/#{post.author.id}') #{post.author.nick}
+                            a(href='/users/profile/#{post.author.id}') #{post.author.nick}
                         span &nbsp;发表于 #{post.created}
                         - if (post.updated) {
                             span &nbsp;最后更新时间 #{post.updated}

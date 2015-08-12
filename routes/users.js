@@ -48,18 +48,18 @@ router.get('/logout', function(req, res, next) {
     });
 });
 
-router.get('/:id', function(req, res, next) {
+router.get('/profile/:id', function(req, res, next) {
     const userId = req.params.id;
     UserService.findById(userId).then(function(user) {
         res.render('profile', {user: user});
     });
 });
 
-router.get('/setting/:id', function(req, res, next) {
+router.get('/account', function(req, res, next) {
     if (!req.session.currentUser) {
         res.render('login');
     }
-    res.render('setting');
+    res.render('account');
 });
 
 module.exports = router;

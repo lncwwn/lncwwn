@@ -1,5 +1,8 @@
 extends layout
 
+block csses
+    link(rel='stylesheet', href='/stylesheets/jquery.Jcrop.min.css')
+
 block content
     .container-fluid
         .row
@@ -79,5 +82,15 @@ block content
                                         button.btn.btn-primary 确认修改
             .col-md-3.basic-col-md
                 include right_area
+            .modal.fade#js-avatar-select-area
+                .modal-dialog.modal-lg
+                    .modal-content
+                        .modal-header
+                            .modal-title 选择图像区域
+                        .modal-body.avatar-show-area
+                            img#avatar-selector
+                        .modal-footer
+                            button.btn.btn-default(type='button' data-dismiss='modal') 取消
+                            button.btn.btn-info(type='button') 确定上传
 block scripts
     script(data-module='account')
