@@ -320,11 +320,6 @@ input[type="checkbox"] {
 }
 
 .avatar-jcrop {
-    max-width: 500px;
-    max-height: 500px;
-    margin: 0 auto;
-}
-
-#avatar-selector {
+    height: 500px;
     margin: 0 auto;
 }

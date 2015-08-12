@@ -37,11 +37,12 @@ define(['jcrop'], function(Jcrop) {
             onSelect: function() {},
             addClass: 'avatar-jcrop',
             bgColor: 'black',
-            boxHeight: 450,
+            boxHeight: 500,
             bgOpacity: .4,
             handleSize: 6,
-            setSelect: [0, 0, 260, 260],
-            minSize: [260, 260]
+            setSelect: [100, 100, 600, 600],
+            minSize: [260, 260],
+            aspectRatio: 1
         }, function() {
             jcropApi = this;
         });
