@@ -45,7 +45,7 @@ define(['jcrop'], function(Jcrop) {
         // img区域的最大高度为500
         var realWidth = image.width, realHeight = image.height, scale = realWidth / realHeight, height = realHeight;
         if (height > 500) {
-            height = 500;
+            //height = 500;
         }
         var width = height * scale;
         if (width < height) {
@@ -83,7 +83,8 @@ define(['jcrop'], function(Jcrop) {
         $('#avatar-selector').Jcrop({
             addClass: 'avatar-jcrop',
             bgColor: 'black',
-            boxHeight: point.height,
+            boxHeight: (function() {return point.height > 500 ? 500 : point.height})(),
+            boxHeight: 500,
             bgOpacity: .4,
             handleSize: 6,
             setSelect: [point.x, point.y, point.x + point.side, point.y + point.side],
