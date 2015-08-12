@@ -303,6 +303,14 @@ input[type="checkbox"] {
     padding-top: 18px;
 }
 
+.avatar-area>img {
+    width: 168px;
+    height: 168px;
+    border: 2px solid #eee;
+    box-shadow: 0 0 6px #000;
+    cursor: pointer;
+}
+
 .avatar-btn {
     width: 100%;
     margin-top: 10px;

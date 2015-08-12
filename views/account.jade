@@ -14,11 +14,10 @@ block content
                         .col-md-3
                             .avatar-area
                                 - if (locals.currentUser.avatar)
-                                    img.img-rounded(src='#{locals.currentUser.avatar}' width='168px' height='168px')
+                                    img.img-rounded#pretend-avatar-upload(src='#{locals.currentUser.avatar}' title='点击更换头像')
                                 - else
-                                    img.img-rounded(src='/images/avatar.png' width='168px' height='168px')
+                                    img.img-rounded#pretend-avatar-upload(src='/images/avatar.png' title='点击更换头像')
                             .avatar-btn
-                                button.btn.btn-default#pretend-avatar-upload 修改头像
                                 input#actual-avatar-upload.hidden(type='file' name='avatar')
                         .col-md-9
                             form.form-horizontal
