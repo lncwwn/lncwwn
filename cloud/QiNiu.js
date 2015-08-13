@@ -20,6 +20,14 @@ let QiNiu = {
     getUptoken: function(bucketName) {
         let putPolicy = new qiniu.rs.PutPolicy(bucketName);
         return putPolicy.token();
+    },
+
+    uploadBuf: function(uptoken, key, body, callback) {
+        let extra = new qiniu.io.PutExtra();
+
+        qiniu.io.put(uptoken, key, body, extra, function(err, ret) {
+            callback(err, ret);
+        });
     }
 
 };

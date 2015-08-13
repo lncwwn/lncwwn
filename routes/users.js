@@ -62,9 +62,4 @@ router.get('/account', function(req, res, next) {
     res.render('account');
 });
 
-// upload avatar
-router.post('/avatar', function(req, res, next) {
-    console.log(req.body);
-});
-
 module.exports = router;

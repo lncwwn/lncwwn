@@ -108,7 +108,7 @@ define(['jcrop'], function(Jcrop) {
         var c = jcropApi.tellSelect();
         if (c.w && c.h) {
             var x = c.x, y = c.y, x2 = c.x2, y2 = c.y2;
-            $.post('/users/avatar', {data: avatar, x: x, y: y, x2: x2, y2: y2}, function(data) {
+            $.post('/resource/avatar', {data: avatar, x: x, y: y, x2: x2, y2: y2}, function(data) {
                 console.log(data);
             });
         } else {
