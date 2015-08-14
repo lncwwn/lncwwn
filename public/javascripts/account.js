@@ -8,6 +8,7 @@
 define(['jcrop'], function(Jcrop) {
 
     var fileReader = new FileReader();
+    var fileReader2 = new FileReader();
     var types = ['image/png', 'image/jpg', 'image/jpeg'];
     var jcropApi, avatar;
 
@@ -54,7 +55,7 @@ define(['jcrop'], function(Jcrop) {
         }
         // 选择区域正方形中心坐标
         var center = [width / 2, height / 2];
-        // 计算正方形的边长
+        // 按照黄金比例计算正方形的边长
         var side = (-1 * min + Math.sqrt(Math.pow(min, 2) + 4 * Math.pow(min, 2))) / 2;
         var x = (width - side) / 2;
         var y = (height - side) / 2;
@@ -106,9 +107,10 @@ define(['jcrop'], function(Jcrop) {
         $('#actual-avatar-upload').get(0).value = '';
     }).on('click', '#submit-avatar-select', function() {
         var c = jcropApi.tellSelect();
+        var userId = $('#js-current-user').data('current-user');
         if (c.w && c.h) {
             var x = c.x, y = c.y, x2 = c.x2, y2 = c.y2;
-            $.post('/resource/avatar', {data: avatar, x: x, y: y, x2: x2, y2: y2}, function(data) {
+            $.post('/resource/avatar', {data: avatar, x: x, y: y, x2: x2, y2: y2, id: userId}, function(data) {
                 console.log(data);
             });
         } else {
