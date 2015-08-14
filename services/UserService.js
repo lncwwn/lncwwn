@@ -41,6 +41,10 @@ module.exports = {
         return UserMapper.findByNick(nick).then(function(user) {
             return user;
         });
+    },
+
+    updateAvatar: function(id, avatar) {
+        return UserMapper.updateAvatar(id, avatar);
     }
 
 };

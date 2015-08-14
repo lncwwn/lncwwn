@@ -54,4 +54,18 @@ UserMapper.findByNick = function(nick) {
     });
 };
 
+UserMapper.updateAvatar = function(id, avatar) {
+    return User.findOne({
+        where: {
+            id: id
+        }
+    }).then(function(user) {
+        if (user) {
+            return user.updateAttributes({
+                avatar: avatar
+            });
+        }
+    });
+};
+
 module.exports = UserMapper;

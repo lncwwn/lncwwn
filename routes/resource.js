@@ -2,8 +2,8 @@ let express = require('express');
 let router = express.Router();
 let QiNiu = require('../cloud/QiNiu');
 let QiNiuConfig = require('../config/qiniu.config.json');
+let UserService = require('../services/UserService');
 let gm = require('gm');
-let stream = require('stream');
 
 router.get('/up_token', function(req, res, next) {
     const upToken = QiNiu.getUpToken(QiNiuConfig.bucketName);
@@ -34,13 +34,18 @@ router.post('/avatar', function(req, res, next) {
         if (!err) {
 
             const upToken = QiNiu.getUpToken(QiNiuConfig.bucketName);
-            QiNiu.uploadFile(upToken, avatarName, TEMP_FILE, function(err, b) {
+            QiNiu.uploadFile(upToken, avatarName, TEMP_FILE, function(err, d) {
                 if (!err) {
-                    console.log(b);
+                    // update new avatar name in database
+                    UserService.updateAvatar(userId, avatarName).then(function(user) {
+                        res.json({updated: true, avatar: user.avatar});
+                    });
                 } else {
                     console.log(err);
+                    res.json({updated: false});
                 }
             });
+
         }
     });
 

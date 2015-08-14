@@ -13,8 +13,8 @@ block content
                     .setting-item-body.row
                         .col-md-3
                             .avatar-area
-                                - if (locals.currentUser.avatar)
-                                    img.img-rounded#pretend-avatar-upload(src='#{locals.currentUser.avatar}' title='点击更换头像')
+                                - if (locals.currentUser.avatarUrl)
+                                    img.img-rounded#pretend-avatar-upload(src='#{locals.currentUser.avatarUrl}' title='点击更换头像')
                                 - else
                                     img.img-rounded#pretend-avatar-upload(src='/images/avatar.png' title='点击更换头像')
                             .avatar-btn

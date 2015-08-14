@@ -5,7 +5,7 @@
  * @date 2015/08/11
  */
 
-define(['jcrop'], function(Jcrop) {
+define(['config', 'jcrop'], function(config, Jcrop) {
 
     var fileReader = new FileReader();
     var fileReader2 = new FileReader();
@@ -37,14 +37,28 @@ define(['jcrop'], function(Jcrop) {
         if (imageFilter(file)) {
             fileReader.readAsDataURL(file);
         } else {
-            var warningPanel = $('#js-warning-panel-common');
-            warningPanel.find('strong').text('图像尺寸过大或格式不合法');
-            warningPanel.removeClass('hidden');
-            var id = setTimeout(function() {
-                warningPanel.addClass('hidden');
-                clearTimeout(id);
-            }, 3000);
+            showWarning('图像尺寸过大或格式不合法');
         }
+    }
+
+    function showSuccess(msg) {
+        var successPanel = $('#js-success-panel-common');
+        successPanel.find('strong').text(msg);
+        successPanel.removeClass('hidden');
+        var id = setTimeout(function() {
+            successPanel.addClass('hidden');
+            clearTimeout(id);
+        }, 3000);
+    }
+
+    function showWarning(msg) {
+        var warningPanel = $('#js-warning-panel-common');
+        warningPanel.find('strong').text(msg);
+        warningPanel.removeClass('hidden');
+        var id = setTimeout(function() {
+            warningPanel.addClass('hidden');
+            clearTimeout(id);
+        }, 3000);
     }
 
     function getPosition(image) {
@@ -79,6 +93,13 @@ define(['jcrop'], function(Jcrop) {
         });
     }
 
+    function updateAvatar(avatarUrl) {
+        var avatarHeader = $('#avatar-header');
+        var avatarImg = $('#pretend-avatar-upload');
+        avatarHeader.attr('src', avatarUrl);
+        avatarImg.attr('src', avatarUrl);
+    }
+
     function addJcrop(point) {
         $('#avatar-selector').Jcrop({
             addClass: 'avatar-jcrop',
@@ -110,8 +131,17 @@ define(['jcrop'], function(Jcrop) {
         var userId = $('#js-current-user').data('current-user');
         if (c.w && c.h) {
             var x = c.x, y = c.y, x2 = c.x2, y2 = c.y2;
+            var avatarSelectPanel = $('#js-avatar-select-area');
             $.post('/resource/avatar', {data: avatar, x: x, y: y, x2: x2, y2: y2, id: userId}, function(data) {
-                console.log(data);
+                if (data) {
+                    if (data.updated) {
+                        var avatarUrl = config.qiNiuUrl + data.avatar;
+                        avatarSelectPanel.modal('hide');
+                        updateAvatar(avatarUrl);
+                    } else {
+                        showWarning('头像更新失败');
+                    }
+                }
             });
         } else {
             // TODO

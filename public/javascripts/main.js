@@ -8,6 +8,7 @@ require.config({
         'simditor-module': '/simple-module/lib/module',
         'simditor-uploader': '/simple-uploader/lib/uploader',
         'jcrop': '/javascripts/jquery.Jcrop.min',
+        'config': '/javascripts/config',
         'global': '/javascripts/global',
         'posts': '/javascripts/posts',
         'account': '/javascripts/account'

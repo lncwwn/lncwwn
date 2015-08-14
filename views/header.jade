@@ -15,10 +15,10 @@
                         li.js-navbar-dropdown-area
                             a(href='javascript:;').js-navbar-toggle
                                 strong #{locals.currentUser.nick} &nbsp;&nbsp;
-                                - if (locals.currentUser.avatar)
-                                    img.user-avatar-md(src='#{locals.currentUser.avatar}')
+                                - if (locals.currentUser.avatarUrl)
+                                    img#avatar-header.user-avatar-md(src='#{locals.currentUser.avatarUrl}')
                                 - else
-                                    img.user-avatar-md(src='/images/avatar.png')
+                                    img#avatar-header.user-avatar-md(src='/images/avatar.png')
                             .navbar-dropdown-panel
                                 .navbar-dropdown-body
                                     a(href='javascript:;').navbar-dropdown-item.text-white#js-edit-post-link 写文章
