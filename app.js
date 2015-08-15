@@ -42,7 +42,7 @@ app.use(session({
 
 app.use(function(req, res, next) {
     const qiNiuUrl = 'http://7xkzmo.com1.z0.glb.clouddn.com/';
-    app.locals.appName = '知行';
+    app.locals.appName = '那畔行';
     app.locals.currentUser = req.session.currentUser || null;
     if (app.locals.currentUser && app.locals.currentUser.avatar) {
         app.locals.currentUser.avatarUrl = qiNiuUrl + app.locals.currentUser.avatar;

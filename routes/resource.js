@@ -38,6 +38,7 @@ router.post('/avatar', function(req, res, next) {
                 if (!err) {
                     // update new avatar name in database
                     UserService.updateAvatar(userId, avatarName).then(function(user) {
+                        req.session.currentUser = user;
                         res.json({updated: true, avatar: user.avatar});
                     });
                 } else {

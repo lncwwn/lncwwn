@@ -138,6 +138,7 @@ define(['config', 'jcrop'], function(config, Jcrop) {
                         var avatarUrl = config.qiNiuUrl + data.avatar;
                         avatarSelectPanel.modal('hide');
                         updateAvatar(avatarUrl);
+                        showSuccess('头像更新成功！');
                     } else {
                         showWarning('头像更新失败');
                     }
