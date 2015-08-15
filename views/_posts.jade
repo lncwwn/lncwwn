@@ -13,18 +13,19 @@
         .col-md-9.basic-col-md.js-post-content
             .col-md-12.basic-col-md
                 .post-head
-                    a.text-primary(href='posts/#{post.id}')
+                    a.text-primary(href='posts/post/#{post.id}')
                         strong #{post.title}
                 .post-body
                     - if (post.showMore) {
-                        p.js-post-summary #{post.summary}...
+                        .js-post-summary!= post.summary
+                            span ...
                         a.text-primary.js-show-post-content.hover-link(href='javascript:;')
                             small.text-primary 显示全文
-                        p.hidden.js-post-content #{post.content}
+                        .hidden.js-post-content!= post.content
                         a.text-primary.js-hide-post-content.hover-link.hidden(href='javascript:;')
                             small.text-primary 收起
                     - } else {
-                        p #{post.content}
+                        div!= post.content
                     - }
                     .post-interact-btn-area
                         a.text-primary.post-interact-btn(href='javascript:;')

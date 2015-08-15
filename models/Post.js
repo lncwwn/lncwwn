@@ -12,10 +12,10 @@ let Interaction = require('./Interaction');
 
 let Post = sequelize.define('post', {
     id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
-    author: Sequelize.INTEGER,
+    author: {type: Sequelize.INTEGER, references: {model: User, key: 'id'}},
     title: Sequelize.STRING,
     content: Sequelize.TEXT,
-    created: Sequelize.TIME,
+    created: {type: Sequelize.TIME, defaultValue: Sequelize.NOW},
     updated: Sequelize.TIME,
     deleted: Sequelize.BOOLEAN
 }, {

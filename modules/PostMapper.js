@@ -6,6 +6,7 @@
  */
 
 let Post = require('../models/Post');
+let moment = require('moment');
 
 let PostMapper = {};
 
@@ -30,6 +31,16 @@ PostMapper.getPostById = function(id) {
     }).then(function(post) {
         return post;
     });
+};
+
+PostMapper.create = function(post) {
+    return Post.create(post);
+};
+
+PostMapper.update = function(post) {
+    const now = moment().format('YYYY-MM-DD HH:mm:ss');
+    post.created = now;
+    return Post.updateAttributes(post);
 };
 
 module.exports = PostMapper;

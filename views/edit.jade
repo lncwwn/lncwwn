@@ -1,0 +1,23 @@
+extends layout
+
+block csses
+    link(rel='stylesheet', href='/simditor/styles/simditor.css')
+
+block content
+    - if (postId) {
+        .hidden#js-current-post(data-post-id='#{postId}')
+    - }
+    .container-fluid
+        .row
+            .col-md-8.col-md-offset-2
+                form
+                    h4 编辑文章
+                    .form-group
+                        input.form-control(placeholder='文章标题，如：我的一生最美好的场景，就是遇见你' name='title')
+                    .form-group
+                        textarea.form-control.js-edit-post-textarea(name='content')
+                    .form-group
+                        .col-md-1.pull-right
+                            button.btn.btn-info#js-submit-post 发布文章
+block scripts
+    script(data-module='edit')

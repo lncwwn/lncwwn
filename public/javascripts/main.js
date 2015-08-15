@@ -7,10 +7,12 @@ require.config({
         'simditor-hotkeys': '/simple-hotkeys/lib/hotkeys',
         'simditor-module': '/simple-module/lib/module',
         'simditor-uploader': '/simple-uploader/lib/uploader',
-        'jcrop': '/javascripts/jquery.Jcrop.min',
+        'jcrop': '/javascripts/lib/jquery.Jcrop.min',
         'config': '/javascripts/config',
+        'common': '/javascripts/common',
         'global': '/javascripts/global',
         'posts': '/javascripts/posts',
+        'edit': '/javascripts/edit',
         'account': '/javascripts/account'
     },
     shim: {

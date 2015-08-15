@@ -31,7 +31,13 @@ module.exports = {
 
             return post;
         });
-    }
+    },
+
+    create: function(post) {
+        return PostMapper.create(post).then(function(post) {
+            return post;
+        });
+    },
 
 };
 

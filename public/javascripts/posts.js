@@ -58,31 +58,20 @@ define([], function() {
     .on('click', '.js-hide-post-content', function() { // 显示摘要
         showSummary($(this));
     })
-    .off('click', '.js-post-assent')
-    .on('click', '.js-post-assent', function() { // 赞同文章
+    .off('click', '.post-assent')
+    .on('click', '.post-assent', function() { // 赞同文章
         var userId = $('#js-current-user').data('current-user');
-        var postId = $(this).closest('.js-post-interact').data('post-id');
+        var postId = $(this).closest('.post-interact').data('post-id');
         assentPost(this, userId, postId);
     })
-    .off('click', '.js-post-oppose')
-    .on('click', '.js-post-oppose', function() { // 不赞同文章
+    .off('click', '.post-oppose')
+    .on('click', '.post-oppose', function() { // 不赞同文章
         alert();
     })
     .off('click', '#js-edit-post-link')
     .on('click', '#js-edit-post-link', function(e) {
         e.stopPropagation();
         editPost();
-    })
-    .off('click', '.js-resize-edit-panel')
-    .on('click', '.js-resize-edit-panel', function() {
-        if (!editPanelFullScreen) {
-            expandEditPanel(this);
-            editPanelFullScreen = true;
-        } else {
-            resetEditPanel(this);
-            editPanelFullScreen = false;
-        }
-
     });
 
 });

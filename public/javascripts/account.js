@@ -5,7 +5,7 @@
  * @date 2015/08/11
  */
 
-define(['config', 'jcrop'], function(config, Jcrop) {
+define(['common', 'config', 'jcrop'], function(com, config, Jcrop) {
 
     var fileReader = new FileReader();
     var fileReader2 = new FileReader();
@@ -37,28 +37,8 @@ define(['config', 'jcrop'], function(config, Jcrop) {
         if (imageFilter(file)) {
             fileReader.readAsDataURL(file);
         } else {
-            showWarning('图像尺寸过大或格式不合法');
+            com.showWarning('图像尺寸过大或格式不合法');
         }
-    }
-
-    function showSuccess(msg) {
-        var successPanel = $('#js-success-panel-common');
-        successPanel.find('strong').text(msg);
-        successPanel.removeClass('hidden');
-        var id = setTimeout(function() {
-            successPanel.addClass('hidden');
-            clearTimeout(id);
-        }, 3000);
-    }
-
-    function showWarning(msg) {
-        var warningPanel = $('#js-warning-panel-common');
-        warningPanel.find('strong').text(msg);
-        warningPanel.removeClass('hidden');
-        var id = setTimeout(function() {
-            warningPanel.addClass('hidden');
-            clearTimeout(id);
-        }, 3000);
     }
 
     function getPosition(image) {
@@ -138,9 +118,9 @@ define(['config', 'jcrop'], function(config, Jcrop) {
                         var avatarUrl = config.qiNiuUrl + data.avatar;
                         avatarSelectPanel.modal('hide');
                         updateAvatar(avatarUrl);
-                        showSuccess('头像更新成功！');
+                        com.showSuccess('头像更新成功！');
                     } else {
-                        showWarning('头像更新失败');
+                        com.showWarning('头像更新失败');
                     }
                 }
             });
