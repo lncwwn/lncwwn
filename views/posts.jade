@@ -2,9 +2,12 @@ extends layout
 
 block content
     .container-fluid
-        .col-md-6.col-md-offset-2
-            include _posts
-        .col-md-3.basic-col-md
-            include right_area
+        .main
+            .main-left
+                .col-md-10
+                    include _posts
+            .main-right
+                .col-md-10.col-md-offset-2.basic-col-md
+                    include right_area
 block scripts
     script(data-module='posts')
