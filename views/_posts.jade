@@ -17,7 +17,7 @@
                         strong #{post.title}
                 .post-body
                     - if (post.showMore) {
-                        .js-post-summary!= post.summary
+                        .post-summary.js-post-summary!= post.summary
                         a.text-primary.js-show-post-content.hover-link(href='javascript:;')
                             small.text-primary 显示全文
                         .hidden.js-post-content!= post.content

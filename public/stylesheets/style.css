@@ -146,6 +146,10 @@ input[type="checkbox"] {
     line-height: 1.7em;
 }
 
+.post-summary {
+    cursor: pointer;
+}
+
 .hover-link:hover {
     box-shadow: 0 0 6px #b1d3f1;
     background-color: #b1d3f1;
@@ -196,8 +200,7 @@ input[type="checkbox"] {
 }
 
 .post-assent:hover,
-.post-oppose:hover,
-.post-assent-info:hover {
+.post-oppose:hover {
     color: #fff;
     background-color: #5e9cbf;
 }
