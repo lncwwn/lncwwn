@@ -26,6 +26,7 @@
     "moment": "^2.10.6",
     "mysql": "^2.8.0",
     "qiniu": "^6.1.8",
-    "sequelize": "^3.5.1"
+    "sequelize": "^3.5.1",
+    "trim-html": "^0.1.7"
   }
 }

@@ -5,6 +5,7 @@ let Post = require('../models/Post');
 let PostService = require('../services/PostService');
 let UserService = require('../services/UserService');
 let InteractionService = require('../services/InteractionService');
+let trimHtml = require('trim-html');
 
 router.get('/', function(req, res, next) {
     PostService.list().then(function(posts) {
@@ -13,7 +14,9 @@ router.get('/', function(req, res, next) {
             post.showMore = false;
             if (post.content.length > 236) {
                 post.showMore = true;
-                post.summary = post.content.substr(0, 236);
+                //post.summary = post.content.substr(0, 236);
+                post.summary = trimHtml(post.content, {limit: 236}).html;
+                console.log(post.summary);
             }
         });
 

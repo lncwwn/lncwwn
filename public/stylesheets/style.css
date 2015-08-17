@@ -138,11 +138,11 @@ input[type="checkbox"] {
     padding-bottom: 6px;
     line-height: 21px;
     border-bottom: 1px solid #eee;
+    /*text-indent: 1em;*/
 }
 
 .post-body p {
     margin-bottom: 3px;
-    text-indent: 1em;
     line-height: 1.7em;
 }
 
