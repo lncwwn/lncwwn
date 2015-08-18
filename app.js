@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '3072kb' }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(session({
     store: new RedisStore({
         'host': redisConfig.host,

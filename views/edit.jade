@@ -1,7 +1,8 @@
 extends layout
 
 block csses
-    link(rel='stylesheet', href='/simditor/styles/simditor.css')
+    link(rel='stylesheet' href='/fontawesome/css/font-awesome.min.css')
+    link(rel='stylesheet' href='/wysiwyg.js/dist/wysiwyg-editor.min.css')
 
 block content
     - if (postId) {
@@ -15,7 +16,7 @@ block content
                     .form-group
                         input.form-control(placeholder='文章标题，如：我的一生最美好的场景，就是遇见你' name='title')
                     .form-group
-                        textarea.form-control.js-edit-post-textarea(name='content')
+                        textarea.form-control#editor(name='content')
                     .form-group
                         .col-md-1.pull-right
                             button.btn.btn-info#js-submit-post 发布文章

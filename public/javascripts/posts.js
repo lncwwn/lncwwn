@@ -55,7 +55,7 @@ define([], function() {
         showContent($(this));
     })
     .off('click', '.js-post-summary')
-    .on('click', '.js-post-summary', function() {
+    .on('click', '.js-post-summary', function() { // 显示全文
         var target = $(this).closest('.post-body').find('.js-show-post-content');
         showContent(target);
     })

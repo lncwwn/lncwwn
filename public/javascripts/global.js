@@ -5,7 +5,7 @@
  * @date 2015/08/11
  */
 
-define(['simditor'], function(simditor) {
+define([], function() {
 
     /**
      * 检测古老的浏览器

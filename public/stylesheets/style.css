@@ -350,3 +350,9 @@ input[type="checkbox"] {
     margin: 0 auto;
 }
 
+/************************ edit post ***********************************/
+
+.wysiwyg-editor {
+    min-height: 500px;
+}
+

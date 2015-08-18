@@ -3,11 +3,8 @@ require.config({
         'vue': '/vue/dist/vue.min',
         'jquery': '/jquery/dist/jquery.min',
         'bootstrap': '/bootstrap/dist/js/bootstrap.min',
-        'simditor': '/simditor/lib/simditor',
-        'simditor-hotkeys': '/simple-hotkeys/lib/hotkeys',
-        'simditor-module': '/simple-module/lib/module',
-        'simditor-uploader': '/simple-uploader/lib/uploader',
         'jcrop': '/javascripts/lib/jquery.Jcrop.min',
+        'wysiwyg': '/wysiwyg.js/dist/standalone.min',
         'config': '/javascripts/config',
         'common': '/javascripts/common',
         'global': '/javascripts/global',
@@ -19,8 +16,8 @@ require.config({
         'bootstrap': {
             deps: ['jquery']
         },
-        'simditor': {
-            deps: ['simditor-hotkeys', 'simditor-module', 'simditor-uploader']
+        'wysiwyg': {
+            deps: ['jquery']
         },
         'jcrop': {
             deps: ['jquery'],
