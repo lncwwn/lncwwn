@@ -10,7 +10,6 @@ let RedisStore = require('connect-redis')(session);
 let routes = require('./routes/index');
 let users = require('./routes/users');
 let posts = require('./routes/posts');
-let resource = require('./routes/resource');
 
 let redisConfig = require('./config/redis.config.json');
 
@@ -43,7 +42,7 @@ app.use(session({
 
 app.use(function(req, res, next) {
     const qiNiuUrl = 'http://7xkzmo.com1.z0.glb.clouddn.com/';
-    app.locals.appName = '知行';
+    app.locals.appName = '途说';
     app.locals.currentUser = req.session.currentUser || null;
     if (app.locals.currentUser && app.locals.currentUser.avatar) {
         app.locals.currentUser.avatarUrl = qiNiuUrl + app.locals.currentUser.avatar;
@@ -54,7 +53,6 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/posts', posts);
-app.use('/resource', resource);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

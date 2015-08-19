@@ -4,7 +4,7 @@ require.config({
         'jquery': '/jquery/dist/jquery.min',
         'bootstrap': '/bootstrap/dist/js/bootstrap.min',
         'jcrop': '/javascripts/lib/jquery.Jcrop.min',
-        'wysiwyg': '/wysiwyg.js/dist/standalone.min',
+        'wysiwyg': '/wysiwyg.js/dist/standalone',
         'config': '/javascripts/config',
         'common': '/javascripts/common',
         'global': '/javascripts/global',

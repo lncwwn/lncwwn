@@ -7,19 +7,13 @@
 
 define(['common', 'wysiwyg'], function(com) {
 
-    $('#editor').wysiwyg({
+    var editor = $('#editor').wysiwyg({
         classes: 'editor',
         toolbar: 'top-selection',
         buttons: {
                 insertimage: {
                     title: '插入图片',
-                    image: '\uf030',
-                    popup: function($popup, $button) {
-                        $popup.append( $('<h3>dsdsds</h3>') );
-                    },
-                    click: function($button) {
-                        console.log($button);
-                    }
+                    image: '\uf030'
                 },
                 insertlink: {
                     title: '插入链接',
@@ -96,13 +90,45 @@ define(['common', 'wysiwyg'], function(com) {
                     title: '清除格式',
                     image: '\uf12d'
                 }
-            }
+            },
+            submit: {
+                title: 'Submit',
+                image: '\uf00c'
+            },
+            placeholder: '开始编辑文章',
+            selectImage: '点击上传或拖拽文件到此',
+            placeholderUrl: '网址，如www.google.com',
+            maxImageSize: [450, 260],
+            forceImageUpload: false,
+            onImageUpload: function() {}
     });
+
+    /**
+     * 对富文本内容进行解析处理
+     */
+    function handleContent(content) {
+        var tempDom = $('<div>').attr('id', 'content-handler').hide();
+        $('body').append(tempDom);
+        tempDom.html(content);
+        // img tag <img>
+        var imgTags = tempDom.find('img');
+        // link tag <a href=''>***</a>
+        var linkTags = tempDom.find('a');
+        var imageDateArray = [];
+        var linkTagsArray = [];
+        imgTags.each(function(index, item) {
+            imageDateArray.push($(item).attr('src')));
+        });
+
+    }
 
     function getPost() {
         var id = $('#js-current-post').data('post-id');
         var title = $('input[name="title"]').val();
-        var content = $('textarea[name="content"]').val();
+        //var content = $('textarea[name="content"]').val();
+        var content = editor.wysiwyg('shell').getHTML();
+        console.log(content);
+        handleContent(content);
         return {
             id: id,
             title: title,
@@ -115,6 +141,7 @@ define(['common', 'wysiwyg'], function(com) {
     .on('click', '#js-submit-post', function(e) {
         e.preventDefault();
         var post = getPost();
+        return;
         var currentUserId = com.getCurrentUserId();
         post.author = currentUserId;
         $.post('/posts/edit', post, function(data) {

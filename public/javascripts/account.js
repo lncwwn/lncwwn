@@ -112,7 +112,7 @@ define(['common', 'config', 'jcrop'], function(com, config, Jcrop) {
         if (c.w && c.h) {
             var x = c.x, y = c.y, x2 = c.x2, y2 = c.y2;
             var avatarSelectPanel = $('#js-avatar-select-area');
-            $.post('/resource/avatar', {data: avatar, x: x, y: y, x2: x2, y2: y2, id: userId}, function(data) {
+            $.post('/users/avatar', {data: avatar, x: x, y: y, x2: x2, y2: y2, id: userId}, function(data) {
                 if (data) {
                     if (data.updated) {
                         var avatarUrl = config.qiNiuUrl + data.avatar;
