@@ -42,10 +42,11 @@ app.use(session({
 
 app.use(function(req, res, next) {
     const qiNiuUrl = 'http://7xkzmo.com1.z0.glb.clouddn.com/';
+    const avatarUrl = 'http://7xl7p6.com1.z0.glb.clouddn.com/';
     app.locals.appName = '途说';
     app.locals.currentUser = req.session.currentUser || null;
     if (app.locals.currentUser && app.locals.currentUser.avatar) {
-        app.locals.currentUser.avatarUrl = qiNiuUrl + app.locals.currentUser.avatar;
+        app.locals.currentUser.avatarUrl = avatarUrl + app.locals.currentUser.avatar;
     }
     next();
 });

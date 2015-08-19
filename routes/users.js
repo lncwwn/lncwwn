@@ -89,7 +89,7 @@ router.post('/avatar', function(req, res, next) {
     gm(buf).crop(width, height, x, y).resize(WIDTH_HEIGHT, WIDTH_HEIGHT).noProfile().write(TEMP_FILE , function(err) {
         if (!err) {
 
-            const upToken = QiNiu.getUpToken(QiNiuConfig.bucketName);
+            const upToken = QiNiu.getUpToken(QiNiuConfig.avatarBucket);
             QiNiu.uploadFile(upToken, avatarName, TEMP_FILE, function(err, d) {
                 if (!err) {
                     // update new avatar name in database

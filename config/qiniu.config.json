@@ -1,4 +1,7 @@
 {
     "accessKey": "",
-    "secretKey": ""
+    "secretKey": "",
+    "bucketName": "",
+    "photoBucket": "",
+    "avatarBucket": ""
 }

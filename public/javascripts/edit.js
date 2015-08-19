@@ -98,13 +98,16 @@ define(['common', 'wysiwyg'], function(com) {
             placeholder: '开始编辑文章',
             selectImage: '点击上传或拖拽文件到此',
             placeholderUrl: '网址，如www.google.com',
-            maxImageSize: [450, 260],
+            maxImageSize: [600, 360],
             forceImageUpload: false,
-            onImageUpload: function() {}
+            onImageUpload: function() {
+                // TODO
+            }
     });
 
     /**
      * 对富文本内容进行解析处理
+     * @param content 要处理的内容 带html标记
      */
     function handleContent(content) {
         var tempDom = $('<div>').attr('id', 'content-handler').hide();
@@ -114,12 +117,12 @@ define(['common', 'wysiwyg'], function(com) {
         var imgTags = tempDom.find('img');
         // link tag <a href=''>***</a>
         var linkTags = tempDom.find('a');
-        var imageDateArray = [];
+        var imageDataArray = [];
         var linkTagsArray = [];
         imgTags.each(function(index, item) {
-            imageDateArray.push($(item).attr('src')));
+            imageDataArray.push($(item).attr('src'));
         });
-
+        console.log(imageDataArray);
     }
 
     function getPost() {
@@ -127,7 +130,6 @@ define(['common', 'wysiwyg'], function(com) {
         var title = $('input[name="title"]').val();
         //var content = $('textarea[name="content"]').val();
         var content = editor.wysiwyg('shell').getHTML();
-        console.log(content);
         handleContent(content);
         return {
             id: id,

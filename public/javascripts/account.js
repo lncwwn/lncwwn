@@ -115,7 +115,7 @@ define(['common', 'config', 'jcrop'], function(com, config, Jcrop) {
             $.post('/users/avatar', {data: avatar, x: x, y: y, x2: x2, y2: y2, id: userId}, function(data) {
                 if (data) {
                     if (data.updated) {
-                        var avatarUrl = config.qiNiuUrl + data.avatar;
+                        var avatarUrl = config.avatarNul + data.avatar;
                         avatarSelectPanel.modal('hide');
                         updateAvatar(avatarUrl);
                         com.showSuccess('头像更新成功！');
