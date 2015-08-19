@@ -99,6 +99,9 @@ define(['common', 'config', 'jcrop'], function(com, config, Jcrop) {
         $('#actual-avatar-upload').click();
     }
 
+    // initialize the bootstrap tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+
     $('body')
     .off('click', '#pretend-avatar-upload')
     .on('click', '#pretend-avatar-upload', function() { // 头像上传

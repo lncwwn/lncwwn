@@ -14,7 +14,7 @@ block content
                                 strong 个人资料
                             .setting-item-body.row
                                 .col-md-3
-                                    .avatar-area
+                                    .avatar-area( data-toggle='tooltip' data-placement='bottom' title='点击更换头像')
                                         - if (locals.currentUser.avatarUrl)
                                             img.img-rounded#pretend-avatar-upload(src='#{locals.currentUser.avatarUrl}' title='点击更换头像')
                                         - else

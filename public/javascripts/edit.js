@@ -128,9 +128,8 @@ define(['common', 'wysiwyg'], function(com) {
     function getPost() {
         var id = $('#js-current-post').data('post-id');
         var title = $('input[name="title"]').val();
-        //var content = $('textarea[name="content"]').val();
         var content = editor.wysiwyg('shell').getHTML();
-        handleContent(content);
+
         return {
             id: id,
             title: title,
@@ -142,7 +141,12 @@ define(['common', 'wysiwyg'], function(com) {
     .off('click', '#js-submit-post')
     .on('click', '#js-submit-post', function(e) {
         e.preventDefault();
+        var content = editor.wysiwyg('shell').getHTML();
+        handleContent(content);
         var post = getPost();
+        $.post('/resource/photos/upload', {data: content}, function() {
+            //
+        });
         return;
         var currentUserId = com.getCurrentUserId();
         post.author = currentUserId;
