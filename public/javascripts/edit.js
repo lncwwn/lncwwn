@@ -137,6 +137,9 @@ define(['common', 'wysiwyg'], function(com) {
         console.log(imageDataArray);
     }
 
+    /**
+     * 获取标题和内容
+     */
     function getPost() {
         var id = $('#js-current-post').data('post-id');
         var title = $('input[name="title"]').val();
@@ -153,11 +156,21 @@ define(['common', 'wysiwyg'], function(com) {
         $('#js-actual-upload').click();
     }
 
+    var fileReader = new FileReader();
+    var image;
+
+    fileReader.onload = function(e) {
+        alert();
+    };
+
     $('body')
     // open image upload dialog
     .off('click', '#js-pretend-upload')
     .on('click', '#js-pretend-upload', function() {
         uploadImage();
+    })
+    .on('change', '#js-actual-upload', function() {
+        alert();
     })
     .off('click', '#js-submit-post')
     .on('click', '#js-submit-post', function(e) {
