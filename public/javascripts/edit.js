@@ -13,11 +13,23 @@ define(['common', 'wysiwyg'], function(com) {
         buttons: {
                 insertimage: {
                     title: '插入图片',
-                    image: '\uf030'
+                    image: '\uf030',
+                    click: function($popup, $button) {
+                        $('#js-insert-image').modal({
+                            show: true,
+                            backdrop: false
+                        });
+                    }
                 },
                 insertlink: {
                     title: '插入链接',
-                    image: '\uf08e'
+                    image: '\uf08e',
+                    click: function() {
+                        $('#js-insert-link').modal({
+                            show: true,
+                            backdrop: false
+                        });
+                    }
                 },
                 bold: {
                     title: '加粗',
@@ -98,7 +110,7 @@ define(['common', 'wysiwyg'], function(com) {
             placeholder: '开始编辑文章',
             selectImage: '点击上传或拖拽文件到此',
             placeholderUrl: '网址，如www.google.com',
-            maxImageSize: [600, 360],
+            maxImageSize: [680, 360],
             forceImageUpload: false,
             onImageUpload: function() {
                 // TODO
@@ -137,10 +149,19 @@ define(['common', 'wysiwyg'], function(com) {
         };
     }
 
+    function uploadImage() {
+        $('#js-actual-upload').click();
+    }
+
     $('body')
+    // open image upload dialog
+    .off('click', '#js-pretend-upload')
+    .on('click', '#js-pretend-upload', function() {
+        uploadImage();
+    })
     .off('click', '#js-submit-post')
     .on('click', '#js-submit-post', function(e) {
-        e.preventDefault();
+        e.preventDefault();s
         var content = editor.wysiwyg('shell').getHTML();
         handleContent(content);
         var post = getPost();

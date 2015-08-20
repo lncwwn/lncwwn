@@ -19,7 +19,43 @@ block content
                     .form-group
                         textarea.form-control#editor(name='content')
                     .form-group
-                        .col-md-1.pull-right
-                            button.btn.btn-info#js-submit-post 发布文章
+                        ul.list-inline.pull-right
+                            li
+                                button.btn.btn-warning#js-save-post 存草稿
+                            li
+                                button.btn.btn-primary#js-submit-post 发布文章
+        .modal.fade#js-insert-image
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        strong 插入图片
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                        .form-group
+                            button.btn.btn-info#js-pretend-upload 上传本地图片
+                        .form-group
+                            .input-group
+                                .input-group-addon 或者使用站外图片
+                                input.form-control(type='text' placeholder='请粘贴图片链接')
+                        .form-group
+                            button.btn.btn-primary.btn-sm#js-insert-image-confirm 确定
+        .modal.fade#js-insert-link
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        strong 插入链接
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                        .form-group
+                            label 链接名称
+                            input.form-control(placeholder='如：谷歌')
+                        .form-group
+                            label 链接地址
+                            input.form-control(placeholder='如：www.google.com')
+                        .form-group
+                            button.btn.btn-primary.btn-sm#js-insert-link-confirm 确定
+        input.hidden#js-actual-upload(type='file' name='image')
 block scripts
     script(data-module='edit')
