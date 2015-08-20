@@ -8,7 +8,6 @@
 define(['common', 'config', 'jcrop'], function(com, config, Jcrop) {
 
     var fileReader = new FileReader();
-    var fileReader2 = new FileReader();
     var types = ['image/png', 'image/jpg', 'image/jpeg'];
     var jcropApi, avatar;
 

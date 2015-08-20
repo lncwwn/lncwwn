@@ -10,7 +10,7 @@ let RedisStore = require('connect-redis')(session);
 let routes = require('./routes/index');
 let users = require('./routes/users');
 let posts = require('./routes/posts');
-let resource = require('./routes/posts');
+let resource = require('./routes/resource');
 
 let redisConfig = require('./config/redis.config.json');
 

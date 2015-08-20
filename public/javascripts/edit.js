@@ -153,6 +153,7 @@ define(['common', 'wysiwyg'], function(com) {
     }
 
     function uploadImage() {
+        $('#js-actual-upload').get(0).value = '';
         $('#js-actual-upload').click();
     }
 
@@ -160,14 +161,22 @@ define(['common', 'wysiwyg'], function(com) {
     var image;
 
     fileReader.onload = function(e) {
-        alert();
+        image = e.target.result;
+        console.log(image);
+        doUpload();
     };
+
+    function doUpload() {
+        $.post('/resource/photos/upload', {image: image}, function(data) {
+            //
+        });
+    }
 
     /**
      * add link into post
      */
     function insertLink(name, url) {
-        var link = '<a href="' + url + '">' + name + '</a>';
+        var link = '<a href="' + url + '" target="_blank">' + name + '</a>';
         editor.wysiwyg('shell').insertHTML(link);
     }
 
@@ -178,7 +187,11 @@ define(['common', 'wysiwyg'], function(com) {
         uploadImage();
     })
     .on('change', '#js-actual-upload', function() {
-        alert();
+        var files = this.files;
+        if (files && files.length > 0) {
+            var image = files[0];
+            fileReader.readAsDataURL(image);
+        }
     })
     .off('click', '#js-insert-link-confirm')
     .on('click', '#js-insert-link-confirm', function(e) {
