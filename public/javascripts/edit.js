@@ -163,6 +163,14 @@ define(['common', 'wysiwyg'], function(com) {
         alert();
     };
 
+    /**
+     * add link into post
+     */
+    function insertLink(name, url) {
+        var link = '<a href="' + url + '">' + name + '</a>';
+        editor.wysiwyg('shell').insertHTML(link);
+    }
+
     $('body')
     // open image upload dialog
     .off('click', '#js-pretend-upload')
@@ -171,6 +179,14 @@ define(['common', 'wysiwyg'], function(com) {
     })
     .on('change', '#js-actual-upload', function() {
         alert();
+    })
+    .off('click', '#js-insert-link-confirm')
+    .on('click', '#js-insert-link-confirm', function(e) {
+        var name = $('input[name="link-name"]').val();
+        var url = $('input[name="link-url"]').val();
+        if ($.trim(name) && $.trim(url)) {
+            insertLink(name, url);
+        }
     })
     .off('click', '#js-submit-post')
     .on('click', '#js-submit-post', function(e) {
