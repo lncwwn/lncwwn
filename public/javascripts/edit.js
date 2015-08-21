@@ -162,7 +162,6 @@ define(['common', 'wysiwyg'], function(com) {
 
     fileReader.onload = function(e) {
         image = e.target.result;
-        console.log(image);
         doUpload();
     };
 
@@ -178,6 +177,7 @@ define(['common', 'wysiwyg'], function(com) {
     function insertLink(name, url) {
         var link = '<a href="' + url + '" target="_blank">' + name + '</a>';
         editor.wysiwyg('shell').insertHTML(link);
+        $('#js-insert-link').modal('hide');
     }
 
     $('body')
@@ -203,7 +203,7 @@ define(['common', 'wysiwyg'], function(com) {
     })
     .off('click', '#js-submit-post')
     .on('click', '#js-submit-post', function(e) {
-        e.preventDefault();s
+        e.preventDefault();
         var content = editor.wysiwyg('shell').getHTML();
         handleContent(content);
         var post = getPost();
