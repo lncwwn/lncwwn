@@ -5,6 +5,8 @@ let Promise = require('bluebird');
 let gm = Promise.promisifyAll(require('gm'));
 let QiNiu = require('../cloud/QiNiu');
 let QiNiuConfig = require('../config/qiniu.config.json');
+let path = require('path');
+let fs = require('fs');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -83,7 +85,11 @@ router.post('/avatar', function(req, res, next) {
     const buf = new Buffer(base64Data, 'base64');
 
     const avatarName = userId + new Date().getTime() + '.jpg';
-    const TEMP_FILE = '/tmp/' + avatarName;
+    const userDir = path.join('/tmp', userId);
+    if (!fs.existsSync(userDir)) {
+        fs.mkdirSync(userDir);
+    }
+    const TEMP_FILE = path.join(userDir, avatarName);
     const WIDTH_HEIGHT = 260;
 
     gm(buf).crop(width, height, x, y).resize(WIDTH_HEIGHT, WIDTH_HEIGHT).noProfile().write(TEMP_FILE , function(err) {

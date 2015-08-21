@@ -162,11 +162,22 @@ define(['common', 'wysiwyg'], function(com) {
 
     fileReader.onload = function(e) {
         image = e.target.result;
-        doUpload();
+        var tempImage = $('<img>').attr('id', 'js-temp-image').attr('src', image).hide();
+        $('body').append(tempImage);
+        var uploadParams = {
+            width: $('#js-temp-image').width(),
+            height: $('#js-temp-image').height(),
+            data: image
+        };
+        tempImage.remove();
+
+        doUpload(uploadParams);
     };
 
-    function doUpload() {
-        $.post('/resource/photos/upload', {image: image}, function(data) {
+    function doUpload(uploadParams) {
+        var currentUserId = com.getCurrentUserId();
+        uploadParams.userId = currentUserId;
+        $.post('/resource/photos/upload', uploadParams, function(data) {
             //
         });
     }
