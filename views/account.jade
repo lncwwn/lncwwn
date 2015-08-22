@@ -88,7 +88,9 @@ block content
                     .modal-dialog.modal-lg
                         .modal-content
                             .modal-header
-                                .modal-title 选择图像区域
+                                strong 选择图像区域
+                                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                    span(aria-hidden='true') &times;
                             .modal-body.avatar-show-area
                                 img#avatar-selector
                             .modal-footer
