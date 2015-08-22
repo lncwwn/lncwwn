@@ -312,12 +312,16 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
     .on('click', '#js-submit-post', function(e) {
         e.preventDefault();
         var content = editor.wysiwyg('shell').getHTML();
-        handleContent(content);
+        //handleContent(content);
         var post = getPost();
-        $.post('/resource/photos/upload', {data: content}, function() {
-            //
-        });
-        return;
+        if (!post.title) {
+            com.showWarning('怎么没有标题呢？难道您也不知道自己在讲什么？');
+            return;
+        }
+        if (!post.content) {
+            com.showWarning('文章当然要有东西啦！空着可不好！');
+            return;
+        }
         var currentUserId = com.getCurrentUserId();
         post.author = currentUserId;
         $.post('/posts/edit', post, function(data) {
