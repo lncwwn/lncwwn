@@ -326,7 +326,11 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
         post.author = currentUserId;
         $.post('/posts/edit', post, function(data) {
             if (data && data.post) {
-                com.showSuccess('文章发表成功');
+                com.showSuccess('文章发表成功，即将跳转到文章详情...');
+                var id = setTimeout(function() {
+                    window.location.href = '/posts/post/' + data.post.id;
+                    clearTimeout(id);
+                }, 2000);
             } else {
                 com.showWarning('文章发表失败，请稍后重试');
             }
