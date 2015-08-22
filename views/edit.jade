@@ -10,52 +10,53 @@ block content
         .hidden#js-current-post(data-post-id='#{postId}')
     - }
     .container-fluid
-        .row
-            .col-md-8.col-md-offset-2
-                form
-                    h4 编辑文章
-                    .form-group
-                        input.form-control(placeholder='文章标题，如：我的一生最美好的场景，就是遇见你' name='title')
-                    .form-group
-                        textarea.form-control#editor(name='content')
-                    .form-group
-                        ul.list-inline.pull-right
-                            li
-                                button.btn.btn-warning#js-save-post 存草稿
-                            li
-                                button.btn.btn-primary#js-submit-post 发布文章
-        .modal.fade#js-insert-image
-            .modal-dialog
-                .modal-content
-                    .modal-header
-                        strong 插入图片
-                        button.close(type='button' data-dismiss='modal' aria-label='Close')
-                            span(aria-hidden='true') &times;
-                    .modal-body
+        .main
+            .row
+                .col-md-12
+                    form
+                        h4 编辑文章
                         .form-group
-                            button.btn.btn-info#js-pretend-upload 上传本地图片
+                            input.form-control(placeholder='文章标题，如：我的一生最美好的场景，就是遇见你' name='title')
                         .form-group
-                            .input-group
-                                .input-group-addon 或者使用站外图片
-                                input.form-control(type='text' placeholder='请粘贴图片链接')
+                            textarea.form-control#editor(name='content')
                         .form-group
-                            button.btn.btn-primary.btn-sm#js-insert-image-confirm 确定
-        .modal.fade#js-insert-link
-            .modal-dialog
-                .modal-content
-                    .modal-header
-                        strong 插入链接
-                        button.close(type='button' data-dismiss='modal' aria-label='Close')
-                            span(aria-hidden='true') &times;
-                    .modal-body
-                        .form-group
-                            label 链接名称
-                            input.form-control(name="link-name" placeholder='如：谷歌')
-                        .form-group
-                            label 链接地址
-                            input.form-control(name="link-url" placeholder='如：www.google.com')
-                        .form-group
-                            button.btn.btn-primary.btn-sm#js-insert-link-confirm 确定
-        input.hidden#js-actual-upload(type='file' name='image')
+                            ul.list-inline.pull-right
+                                li
+                                    button.btn.btn-warning#js-save-post 存草稿
+                                li
+                                    button.btn.btn-primary#js-submit-post 发布文章
+            .modal.fade#js-insert-image
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            strong 插入图片
+                            button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                span(aria-hidden='true') &times;
+                        .modal-body
+                            .form-group
+                                button.btn.btn-info#js-pretend-upload 上传本地图片
+                            .form-group
+                                .input-group
+                                    .input-group-addon 或者使用站外图片
+                                    input.form-control(type='text' placeholder='请粘贴图片链接')
+                            .form-group
+                                button.btn.btn-primary.btn-sm#js-insert-image-confirm 确定
+            .modal.fade#js-insert-link
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            strong 插入链接
+                            button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                span(aria-hidden='true') &times;
+                        .modal-body
+                            .form-group
+                                label 链接名称
+                                input.form-control(name="link-name" placeholder='如：谷歌')
+                            .form-group
+                                label 链接地址
+                                input.form-control(name="link-url" placeholder='如：www.google.com')
+                            .form-group
+                                button.btn.btn-primary.btn-sm#js-insert-link-confirm 确定
+            input.hidden#js-actual-upload(type='file' name='image')
 block scripts
     script(data-module='edit')

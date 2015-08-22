@@ -7,6 +7,13 @@
 
 define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
 
+    /**
+     * 一些初始化本页的操作，如清理掉缓存的图片信息
+     */
+    function init() {
+        localStorage.setItem('photos', null);
+    }
+
     var editor = $('#editor').wysiwyg({
         classes: 'editor',
         toolbar: 'top-selection',
@@ -188,14 +195,11 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
         image = e.target.result;
         var tempImage = $('<img>').attr('id', 'js-temp-image').attr('src', image).hide();
         $('body').append(tempImage);
-        var uploadParams = {
-            width: $('#js-temp-image').width(),
-            height: $('#js-temp-image').height(),
-            data: image
-        };
+        var rawWidth = $('#js-temp-image').width(), rawHeight = $('#js-temp-image').height();
         tempImage.remove();
 
-        doUpload(uploadParams);
+        // 在编辑器中显示图像
+        insertImage(image, rawWidth, rawHeight);
     };
 
     function doUpload(uploadParams) {
@@ -219,6 +223,30 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
         var link = '<a href="' + url + '" target="_blank">' + name + '</a>';
         editor.wysiwyg('shell').insertHTML(link);
         $('#js-insert-link').modal('hide');
+    }
+
+    /**
+     * add image into post
+     */
+    function insertImage(imageData, rawWidth, rawHeight) {
+        var limitWidth = 500, limitHeight = 200, width = rawWidth, height = rawHeight;
+        if (width >= height) {
+            if (width > limitWidth) {
+                var scale = height / width;
+                width = limitWidth;
+                height = scale * width;
+            }
+        } else {
+            if (height > limitHeight) {
+                var scale = width / height;
+                height = limitHeight;
+                width = scale * height;
+            }
+        }
+        var image = '<img src="' + imageData + '" width=' + width + 'height='
+            + height + 'data-raw-width=' + rawWidth + 'data-raw-height=' + rawHeight + '/>';
+        editor.wysiwyg('shell').insertHTML(image);
+        $('#js-insert-image').modal('hide');
     }
 
     /**
@@ -246,14 +274,14 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
             link: link
         };
         recentUpload.push(newUpload);
-        localStorage.setItem('photos', recentUpload);
+        localStorage.setItem('uploaded', recentUpload);
     }
 
     /**
      * 获取存储在客户端的用户最近上传的图片和地址
      */
     function getRecentUpload() {
-        var recentUpload = localStorage.getItem('photos');
+        var recentUpload = localStorage.getItem('uploaded');
         if (recentUpload) {
             return JSON.parse(recentUpload);
         }
