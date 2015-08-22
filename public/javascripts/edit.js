@@ -253,8 +253,8 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
      * 随机截取两个图片相同位置的imagedata字符串进行比较，
      * 以此来判断是否该图片上传过
      */
-    function compareImage(subImagedata1, subImagedata2) {
-        if (subImagedata1 === subImagedata2) {
+    function compareImage(subImageData1, subImageData2) {
+        if (subImageData1 === subImageData2) {
             return true;
         }
 
@@ -264,13 +264,13 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
     /**
      * 把用户最近上传的图片imagedata和云链接存储在客户端
      */
-    function storeRecentUpload(imagedata, link) {
+    function storeRecentUpload(imageData, link) {
         var recentUpload = getRecentUpload();
         if (!recentUpload) {
             recentUpload = [];
         }
         var newUpload = {
-            image: imagedata,
+            image: imageData,
             link: link
         };
         recentUpload.push(newUpload);
