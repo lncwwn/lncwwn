@@ -5,7 +5,7 @@
  * @date 2015/08/15
  */
 
-define(['common', 'wysiwyg'], function(com) {
+define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
 
     var editor = $('#editor').wysiwyg({
         classes: 'editor',
@@ -158,7 +158,31 @@ define(['common', 'wysiwyg'], function(com) {
     }
 
     var fileReader = new FileReader();
+    // 若当前上传的图片已上传过，currentUploadLink将被赋值为已上传过的图片的link
     var image;
+
+    /**
+     * 检查图片是否上传过
+     * @param imageData 图像的imagedata
+     * @return 若返回有效的uploadedLink则表示该图片已上传过，本次不再重新上传
+     */
+    function hasImageUpload(imageData) {
+        var uploadedLink;
+        // 倒取imageData的随机100+个字符
+        var length = (Math.random() * 100).toFixed(0) + 100;
+        var currentSubImageData = imageData.substr(length);
+        var uploaded = getRecentUpload();
+        if (uploaded && uploaded.length > 0) {
+            uploaded.forEach(function(item) {
+                var itemSubImageData = item.image.substr(length);
+                if (currentSubImageData === itemSubImageData) {
+                    uploadedLink = item.link;
+                }
+            });
+        }
+
+        return uploadedLink;
+    }
 
     fileReader.onload = function(e) {
         image = e.target.result;
@@ -178,7 +202,13 @@ define(['common', 'wysiwyg'], function(com) {
         var currentUserId = com.getCurrentUserId();
         uploadParams.userId = currentUserId;
         $.post('/resource/photos/upload', uploadParams, function(data) {
-            //
+            // TODO
+            if (data) {
+                if (data.success) {
+                    storeRecentUpload(image, data.link);
+                }
+            }
+
         });
     }
 
@@ -189,6 +219,44 @@ define(['common', 'wysiwyg'], function(com) {
         var link = '<a href="' + url + '" target="_blank">' + name + '</a>';
         editor.wysiwyg('shell').insertHTML(link);
         $('#js-insert-link').modal('hide');
+    }
+
+    /**
+     * 随机截取两个图片相同位置的imagedata字符串进行比较，
+     * 以此来判断是否该图片上传过
+     */
+    function compareImage(subImagedata1, subImagedata2) {
+        if (subImagedata1 === subImagedata2) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * 把用户最近上传的图片imagedata和云链接存储在客户端
+     */
+    function storeRecentUpload(imagedata, link) {
+        var recentUpload = getRecentUpload();
+        if (!recentUpload) {
+            recentUpload = [];
+        }
+        var newUpload = {
+            image: imagedata,
+            link: link
+        };
+        recentUpload.push(newUpload);
+        localStorage.setItem('photos', recentUpload);
+    }
+
+    /**
+     * 获取存储在客户端的用户最近上传的图片和地址
+     */
+    function getRecentUpload() {
+        var recentUpload = localStorage.getItem('photos');
+        if (recentUpload) {
+            return JSON.parse(recentUpload);
+        }
     }
 
     $('body')

@@ -6,7 +6,7 @@ let gm = Promise.promisifyAll(require('gm'));
 let QiNiu = require('../cloud/QiNiu');
 let QiNiuConfig = require('../config/qiniu.config.json');
 let path = require('path');
-let fs = require('fs');
+let fs = Promise.promisifyAll(require('fs'));
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -90,27 +90,26 @@ router.post('/avatar', function(req, res, next) {
         fs.mkdirSync(userDir);
     }
     const TEMP_FILE = path.join(userDir, avatarName);
-    const WIDTH_HEIGHT = 260;
+    // 上传后的头像图片尺寸要求260＊260
+    const SIZE = 260;
 
-    gm(buf).crop(width, height, x, y).resize(WIDTH_HEIGHT, WIDTH_HEIGHT).noProfile().write(TEMP_FILE , function(err) {
+    gm(buf).crop(width, height, x, y).resize(SIZE, SIZE).noProfile().write(TEMP_FILE, function(err) {
         if (!err) {
-
-            const upToken = QiNiu.getUpToken(QiNiuConfig.avatarBucket);
-            QiNiu.uploadFile(upToken, avatarName, TEMP_FILE, function(err, d) {
-                if (!err) {
+            QiNiu.getUpToken(QiNiuConfig.avatarBucket).then(function(upToken) {
+                QiNiu.uploadFile(upToken, avatarName, TEMP_FILE).then(function(d) {
                     // update new avatar name in database
                     UserService.updateAvatar(userId, avatarName).then(function(user) {
                         req.session.currentUser = user;
                         res.json({updated: true, avatar: user.avatar});
                     });
-                } else {
-                    console.log(err);
-                    res.json({updated: false});
-                }
+                }).catch(function(err) {
+                    req.json({updated: false});
+                });
             });
-
+        } else {
+            req.json({updated: false});
         }
-    });
+    })
 
 });
 
