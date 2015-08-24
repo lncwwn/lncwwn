@@ -13,7 +13,7 @@ define([], function() {
      * @param postId
      */
     function assentPost(that, userId, postId) {
-        $.post('/posts/interact', {userId: userId, postId: postId}, function(data) {
+        $.post('/posts/interact/assent', {userId: userId, postId: postId}, function(data) {
             if (!data.error) {
                 var count = data.count;
                 $(that).find('.js-post-assent-count').text(count);

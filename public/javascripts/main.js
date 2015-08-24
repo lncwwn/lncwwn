@@ -6,7 +6,6 @@ require.config({
         'jcrop': '/javascripts/lib/jquery.Jcrop.min',
         'wysiwyg': '/wysiwyg.js/dist/standalone',
         'plupload': '/plupload/js/plupload.full.min',
-        'qiniu': '/js-sdk/src/qiniu',
         'config': '/javascripts/config',
         'common': '/javascripts/common',
         'global': '/javascripts/global',
@@ -24,10 +23,6 @@ require.config({
         'jcrop': {
             deps: ['jquery'],
             exports: 'jQuery.Jcrop'
-        },
-        'qiniu': {
-            deps: ['plupload'],
-            exports: 'Qiniu'
         }
     }
 });

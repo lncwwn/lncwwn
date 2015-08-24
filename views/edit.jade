@@ -57,6 +57,10 @@ block content
                                 input.form-control(name="link-url" placeholder='如：www.google.com')
                             .form-group
                                 button.btn.btn-primary.btn-sm#js-insert-link-confirm 确定
-            input.hidden#js-actual-upload(type='file' name='image')
+                iframe.hidden(name='frame')
+                form#js-upload-image-to-cloud(action='http://upload.qiniu.com/' method='post' enctype='multipart/form-data' target='frame')
+                    input(type='hidden' name='key')
+                    input(type='hidden' name='token')
+                    input#js-actual-upload(type='file' name='file')
 block scripts
     script(data-module='edit')

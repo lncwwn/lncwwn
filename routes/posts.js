@@ -104,7 +104,7 @@ router.post('/edit', function(req, res, next) {
     });
 });
 
-router.post('/interact', function(req, res, next) {
+router.post('/interact/assent', function(req, res, next) {
     const userId = req.body.userId;
     const postId = req.body.postId;
     InteractionService.addLike(userId, postId).spread(function(interaction, created) {

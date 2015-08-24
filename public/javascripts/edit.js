@@ -5,7 +5,7 @@
  * @date 2015/08/15
  */
 
-define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
+define(['common', 'wysiwyg'], function(com, wysiwyg) {
 
     /**
      * 一些初始化本页的操作，如清理掉缓存的图片信息
@@ -26,6 +26,7 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
                             show: true,
                             backdrop: false
                         });
+                        generatePhotoName();
                     }
                 },
                 insertlink: {
@@ -125,8 +126,34 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
     });
 
     /**
+     * 获取上传图片到七牛的token
+     */
+    function getToken() {
+        $.get('/resource/photos/uptoken', function(res) {
+            if (res) {
+                var token = res.uptoken;
+                $('input[name="token"]').val(token);
+            }
+        })
+    }
+
+    getToken();
+
+    /**
+     * 生成上传图片的名字
+     */
+    function generatePhotoName() {
+        var name = com.getCurrentUserId() + '-' + (new Date()).getTime();
+        $('input[name="key"]').val(name);
+    }
+
+    function uploadImageToCloud() {
+        $('#js-upload-image-to-cloud').submit();
+    }
+
+    /**
      * 对富文本内容进行解析处理
-     * @param content 要处理的内容 带html标记
+     * @param content 要处理的内容 带html标记 TODO
      */
     function handleContent(content) {
         var tempDom = $('<div>').attr('id', 'content-handler').hide();
@@ -198,23 +225,11 @@ define(['common', 'wysiwyg', 'qiniu'], function(com, wysiwyg, Qiniu) {
         var rawWidth = $('#js-temp-image').width(), rawHeight = $('#js-temp-image').height();
         tempImage.remove();
 
+        uploadImageToCloud();
+
         // 在编辑器中显示图像
         insertImage(image, rawWidth, rawHeight);
     };
-
-    function doUpload(uploadParams) {
-        var currentUserId = com.getCurrentUserId();
-        uploadParams.userId = currentUserId;
-        $.post('/resource/photos/upload', uploadParams, function(data) {
-            // TODO
-            if (data) {
-                if (data.success) {
-                    storeRecentUpload(image, data.link);
-                }
-            }
-
-        });
-    }
 
     /**
      * add link into post
