@@ -26,6 +26,7 @@ define(['common', 'wysiwyg'], function(com, wysiwyg) {
                             show: true,
                             backdrop: false
                         });
+                        getToken();
                         generatePhotoName();
                     }
                 },
@@ -137,8 +138,6 @@ define(['common', 'wysiwyg'], function(com, wysiwyg) {
         })
     }
 
-    getToken();
-
     /**
      * 生成上传图片的名字
      */
@@ -229,6 +228,11 @@ define(['common', 'wysiwyg'], function(com, wysiwyg) {
 
         // 在编辑器中显示图像
         insertImage(image, rawWidth, rawHeight);
+    };
+
+    $('iframe').onload = function(e) {
+        var iframe = document.getElementById('iframe');
+        console.log(iframe.contentWindow.document);
     };
 
     /**
