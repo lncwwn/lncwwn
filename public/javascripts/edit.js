@@ -351,6 +351,7 @@ define(['common', 'wysiwyg'], function(com, wysiwyg) {
                     clearTimeout(id);
                 }, 2000);
             } else {
+                // TODO
                 com.showWarning('文章发表失败，请稍后重试');
             }
         });
