@@ -118,7 +118,7 @@ define(['common', 'wysiwyg'], function(com, wysiwyg) {
             },
             placeholder: '开始编辑文章',
             selectImage: '点击上传或拖拽文件到此',
-            placeholderUrl: '网址，如www.google.com',
+            placeholderUrl: '网址，如www.lncwwn.com',
             maxImageSize: [680, 360],
             forceImageUpload: false,
             onImageUpload: function() {
