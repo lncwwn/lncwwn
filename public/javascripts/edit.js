@@ -154,21 +154,21 @@ define(['common', 'wysiwyg'], function(com, wysiwyg) {
      * 对富文本内容进行解析处理
      * @param content 要处理的内容 带html标记 TODO
      */
-    function handleContent(content) {
-        var tempDom = $('<div>').attr('id', 'content-handler').hide();
-        $('body').append(tempDom);
-        tempDom.html(content);
-        // img tag <img>
-        var imgTags = tempDom.find('img');
-        // link tag <a href=''>***</a>
-        var linkTags = tempDom.find('a');
-        var imageDataArray = [];
-        var linkTagsArray = [];
-        imgTags.each(function(index, item) {
-            imageDataArray.push($(item).attr('src'));
-        });
-        console.log(imageDataArray);
-    }
+//    function handleContent(content) {
+//        var tempDom = $('<div>').attr('id', 'content-handler').hide();
+//        $('body').append(tempDom);
+//        tempDom.html(content);
+//        // img tag <img>
+//        var imgTags = tempDom.find('img');
+//        // link tag <a href=''>***</a>
+//        var linkTags = tempDom.find('a');
+//        var imageDataArray = [];
+//        var linkTagsArray = [];
+//        imgTags.each(function(index, item) {
+//            imageDataArray.push($(item).attr('src'));
+//        });
+//        console.log(imageDataArray);
+//    }
 
     /**
      * 获取标题和内容
