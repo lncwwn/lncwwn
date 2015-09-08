@@ -268,6 +268,17 @@ define(['common', 'wysiwyg'], function(com, wysiwyg) {
         $('#js-insert-image').modal('hide');
     }
 
+    function getImageUploadCallbackFromIFrame() {
+        var iframe = document.getElementById('js-image-callback');
+        var iframeDoc = iframe.contentWindow;
+        return iframeDoc.document;
+    }
+
+    var iframe = document.getElementById('js-image-callback');
+    iframe.onload = function() {
+        console.log(this.contentWindow.document);
+    }
+
     /**
      * 随机截取两个图片相同位置的imagedata字符串进行比较，
      * 以此来判断是否该图片上传过
