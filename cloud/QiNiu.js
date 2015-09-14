@@ -4,7 +4,7 @@
  * @author victor li
  * @date 2015/08/09
  */
-
+'use strict'
 let qiniu = require('qiniu');
 let config = require('../config/qiniu.config.json');
 let promise = require('bluebird');

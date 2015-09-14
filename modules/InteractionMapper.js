@@ -4,7 +4,7 @@
  * @author victor li
  * @date 2015/08/07
  */
-
+'use strict'
 let Interaction = require('../models/Interaction');
 
 let InteractionMapper = {};

@@ -4,7 +4,7 @@
  * @author victor li
  * @date 2015/07/30
  */
-
+'use strict'
 let Post = require('../models/Post');
 let moment = require('moment');
 

@@ -4,7 +4,7 @@
  * @author victor li
  * @date 2015/07/29
  */
-
+'use strict'
 let Sequelize = require('sequelize');
 let dbConfig = require('../config/db.config');
 

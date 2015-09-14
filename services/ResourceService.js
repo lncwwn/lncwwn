@@ -4,7 +4,7 @@
  * @author victor li
  * @date 2015/08/19
  */
-
+'use strict'
 let QiNiu = require('../cloud/QiNiu');
 let QiNiuConfig = require('../config/qiniu.config.json');
 // to operate image

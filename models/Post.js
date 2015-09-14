@@ -4,7 +4,7 @@
  * @author victor li
  * @date 2015/07/30
  */
-
+'use strict'
 let sequelize = require('../modules/sequelize');
 let Sequelize = require('sequelize');
 let User = require('./User');

@@ -4,7 +4,7 @@
  * @author victor li
  * @date 2015/008/01
  */
-
+'use strict'
 let sequelize = require('../modules/sequelize');
 let Sequelize = require('sequelize');
 

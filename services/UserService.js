@@ -4,7 +4,7 @@
  * @author victor li
  * @date 2015/07/30
  */
-
+'use strict'
 let moment = require('moment');
 let User = require('../models/User');
 let UserMapper = require('../modules/UserMapper');
